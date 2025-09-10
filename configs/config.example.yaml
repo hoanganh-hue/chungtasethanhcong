@@ -1,0 +1,194 @@
+# OpenManus-Youtu Unified Framework Configuration
+# This is an example configuration file showing all available options
+
+# Configuration metadata
+version: "0.1.0"
+created_at: "2025-01-10T00:00:00Z"
+updated_at: "2025-01-10T00:00:00Z"
+
+# Model configuration
+model:
+  provider: "openai"  # openai, anthropic, google, deepseek, ollama
+  model_name: "gpt-4o"
+  base_url: "https://api.openai.com/v1"
+  api_key: "your-api-key-here"  # Set via environment variable OPENAI_API_KEY
+  max_tokens: 4096
+  temperature: 0.7
+  top_p: 1.0
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+  timeout: 30
+
+# Enabled tools
+tools:
+  - "web_search"
+  - "file_operations"
+  - "data_analysis"
+  - "browser_automation"
+  - "chart_generation"
+
+# Tool configurations
+tool_configs:
+  web_search:
+    name: "web_search"
+    enabled: true
+    config:
+      search_engine: "google"
+      max_results: 10
+      timeout: 30
+    dependencies: []
+    timeout: 30
+    retry_count: 3
+  
+  file_operations:
+    name: "file_operations"
+    enabled: true
+    config:
+      allowed_extensions: [".txt", ".csv", ".json", ".yaml", ".py"]
+      max_file_size: 10485760  # 10MB
+      working_directory: "./workspace"
+    dependencies: []
+    timeout: 60
+    retry_count: 2
+  
+  data_analysis:
+    name: "data_analysis"
+    enabled: true
+    config:
+      max_rows: 100000
+      max_columns: 1000
+      memory_limit: 2147483648  # 2GB
+    dependencies: ["pandas", "numpy"]
+    timeout: 300
+    retry_count: 1
+  
+  browser_automation:
+    name: "browser_automation"
+    enabled: true
+    config:
+      browser: "chromium"
+      headless: true
+      viewport: "1920x1080"
+      timeout: 30
+    dependencies: ["playwright"]
+    timeout: 60
+    retry_count: 2
+  
+  chart_generation:
+    name: "chart_generation"
+    enabled: true
+    config:
+      output_format: "png"
+      dpi: 300
+      style: "default"
+    dependencies: ["matplotlib", "plotly"]
+    timeout: 120
+    retry_count: 1
+
+# Environment configuration
+environment:
+  type: "local"  # local, docker, kubernetes, cloud
+  sandbox: true
+  resource_limits:
+    cpu_cores: 4
+    memory_mb: 8192
+    disk_gb: 10
+    network_access: true
+    file_system_access: true
+    timeout_seconds: 300
+  working_directory: "./workspace"
+  environment_variables:
+    PYTHONPATH: "./src"
+    LOG_LEVEL: "INFO"
+  python_path: "python"
+  dependencies:
+    - "pandas>=2.0.0"
+    - "numpy>=1.24.0"
+    - "matplotlib>=3.7.0"
+  sandbox: true
+  isolation: true
+
+# Agent configuration
+agent_name: "unified-agent"
+agent_description: "A unified AI agent combining OpenManus and Youtu-Agent capabilities"
+max_steps: 50
+timeout: 300
+
+# Tracing configuration
+tracing:
+  enabled: true
+  provider: "local"  # local, jaeger, zipkin, datadog
+  endpoint: null
+  sampling_rate: 1.0
+  batch_size: 100
+  flush_interval: 5
+
+# Benchmark configuration
+benchmark:
+  enabled: false
+  datasets:
+    - "webwalkerqa"
+    - "gaia"
+  metrics:
+    - "accuracy"
+    - "execution_time"
+    - "cost"
+  output_dir: "./benchmarks"
+  save_results: true
+
+# Security configuration
+security:
+  authentication: false
+  authorization: false
+  encryption: true
+  audit_logging: true
+  rate_limiting: true
+  cors_enabled: true
+
+# API configuration
+api:
+  host: "127.0.0.1"
+  port: 8000
+  workers: 1
+  reload: false
+  log_level: "INFO"
+  docs_url: "/docs"
+  redoc_url: "/redoc"
+
+# Additional settings
+debug: false
+log_level: "INFO"
+data_dir: "./data"
+cache_dir: "./cache"
+temp_dir: "./temp"
+
+# Example tool-specific configurations
+examples:
+  # Web scraping example
+  web_scraping:
+    url: "https://example.com"
+    selectors:
+      title: "h1"
+      content: ".content"
+    output_format: "json"
+  
+  # Data analysis example
+  data_analysis:
+    input_file: "data.csv"
+    operations:
+      - "describe"
+      - "correlation"
+      - "visualization"
+    output_file: "analysis_report.html"
+  
+  # Browser automation example
+  browser_automation:
+    url: "https://example.com"
+    actions:
+      - type: "click"
+        selector: "#button"
+      - type: "fill"
+        selector: "#input"
+        value: "test"
+    screenshot: true
+    output_file: "screenshot.png"

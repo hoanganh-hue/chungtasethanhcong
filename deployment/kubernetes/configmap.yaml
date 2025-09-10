@@ -1,0 +1,42 @@
+# Kubernetes ConfigMap for OpenManus-Youtu Integrated Framework
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openmanus-youtu-config
+  namespace: openmanus-youtu
+  labels:
+    app: openmanus-youtu-framework
+data:
+  # Application Configuration
+  ENVIRONMENT: "production"
+  LOG_LEVEL: "info"
+  CORS_ORIGINS: "https://openmanus-youtu.com,https://api.openmanus-youtu.com"
+  TRUSTED_HOSTS: "openmanus-youtu.com,api.openmanus-youtu.com"
+  
+  # Database Configuration
+  POSTGRES_HOST: "postgres-service"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "openmanus_youtu"
+  POSTGRES_USER: "openmanus"
+  
+  # Redis Configuration
+  REDIS_HOST: "redis-service"
+  REDIS_PORT: "6379"
+  
+  # Security Configuration
+  JWT_SECRET_KEY: "your-jwt-secret-key-here"
+  ENCRYPTION_KEY: "your-encryption-key-here"
+  
+  # Performance Configuration
+  MAX_WORKERS: "4"
+  WORKER_TIMEOUT: "30"
+  KEEP_ALIVE: "2"
+  
+  # Monitoring Configuration
+  PROMETHEUS_ENABLED: "true"
+  METRICS_PORT: "9090"
+  
+  # Rate Limiting Configuration
+  RATE_LIMIT_REQUESTS: "1000"
+  RATE_LIMIT_WINDOW: "3600"
+  RATE_LIMIT_BURST: "100"

@@ -1,0 +1,10 @@
+# Kubernetes Namespace for OpenManus-Youtu Integrated Framework
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openmanus-youtu
+  labels:
+    name: openmanus-youtu
+    app: openmanus-youtu-framework
+    version: "1.0.0"
+    environment: production

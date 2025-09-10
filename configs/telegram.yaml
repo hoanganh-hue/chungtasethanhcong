@@ -1,0 +1,312 @@
+# Telegram Bot Configuration for OpenManus-Youtu Integrated Framework
+# Bot settings and module communication configuration
+
+telegram:
+  # Bot settings
+  bot:
+    token: "${TELEGRAM_BOT_TOKEN}"
+    username: "${TELEGRAM_BOT_USERNAME}"
+    webhook_url: "${TELEGRAM_WEBHOOK_URL}"
+    webhook_port: 8443
+    webhook_secret: "${TELEGRAM_WEBHOOK_SECRET}"
+    
+    # Bot behavior
+    auto_delete_messages: false
+    message_timeout: 300  # 5 minutes
+    max_message_length: 4096
+    
+    # Rate limiting
+    rate_limit:
+      enabled: true
+      messages_per_minute: 30
+      commands_per_minute: 10
+      burst_limit: 5
+
+  # User management
+  users:
+    # Access control
+    allowed_users: []  # Empty means all users allowed
+    admin_users: []    # Admin user IDs
+    blocked_users: []  # Blocked user IDs
+    
+    # User limits
+    max_requests_per_hour: 100
+    max_requests_per_day: 1000
+    max_file_size: 20971520  # 20MB
+    
+    # User data retention
+    user_data_retention_days: 365
+    session_timeout: 3600  # 1 hour
+
+  # Module configuration
+  modules:
+    # CCCD Generation
+    cccd_generation:
+      enabled: true
+      max_quantity: 1000
+      allowed_provinces:
+        - "Hà Nội"
+        - "TP. Hồ Chí Minh"
+        - "Hưng Yên"
+        - "Hải Phòng"
+        - "Đà Nẵng"
+        - "Cần Thơ"
+        - "An Giang"
+        - "Bà Rịa - Vũng Tàu"
+        - "Bắc Giang"
+        - "Bắc Kạn"
+        - "Bạc Liêu"
+        - "Bắc Ninh"
+        - "Bến Tre"
+        - "Bình Định"
+        - "Bình Dương"
+        - "Bình Phước"
+        - "Bình Thuận"
+        - "Cà Mau"
+        - "Cao Bằng"
+        - "Đắk Lắk"
+        - "Đắk Nông"
+        - "Điện Biên"
+        - "Đồng Nai"
+        - "Đồng Tháp"
+        - "Gia Lai"
+        - "Hà Giang"
+        - "Hà Nam"
+        - "Hà Tĩnh"
+        - "Hải Dương"
+        - "Hậu Giang"
+        - "Hòa Bình"
+        - "Hưng Yên"
+        - "Khánh Hòa"
+        - "Kiên Giang"
+        - "Kon Tum"
+        - "Lai Châu"
+        - "Lâm Đồng"
+        - "Lạng Sơn"
+        - "Lào Cai"
+        - "Long An"
+        - "Nam Định"
+        - "Nghệ An"
+        - "Ninh Bình"
+        - "Ninh Thuận"
+        - "Phú Thọ"
+        - "Phú Yên"
+        - "Quảng Bình"
+        - "Quảng Nam"
+        - "Quảng Ngãi"
+        - "Quảng Ninh"
+        - "Quảng Trị"
+        - "Sóc Trăng"
+        - "Sơn La"
+        - "Tây Ninh"
+        - "Thái Bình"
+        - "Thái Nguyên"
+        - "Thanh Hóa"
+        - "Thừa Thiên Huế"
+        - "Tiền Giang"
+        - "Trà Vinh"
+        - "Tuyên Quang"
+        - "Vĩnh Long"
+        - "Vĩnh Phúc"
+        - "Yên Bái"
+      
+      allowed_genders:
+        - "nam"
+        - "nữ"
+      
+      birth_year_range:
+        min: 1950
+        max: 2005
+
+    # CCCD Check
+    cccd_check:
+      enabled: true
+      max_checks_per_request: 100
+      check_timeout: 30
+      retry_attempts: 3
+      
+      # Anti-bot settings
+      anti_bot:
+        enabled: true
+        proxy_rotation: true
+        user_agent_rotation: true
+        delay_between_requests: 2
+
+    # Tax Lookup
+    tax_lookup:
+      enabled: true
+      max_lookups_per_request: 50
+      lookup_timeout: 30
+      retry_attempts: 3
+      
+      # API settings
+      api_endpoint: "https://masothue.com/tra-cuu-ma-so-thue-ca-nhan/"
+      rate_limit: 10  # requests per minute
+
+    # Data Analysis
+    data_analysis:
+      enabled: true
+      max_data_size: 10485760  # 10MB
+      analysis_timeout: 300  # 5 minutes
+      supported_formats:
+        - "csv"
+        - "json"
+        - "xlsx"
+        - "txt"
+
+    # Web Scraping
+    web_scraping:
+      enabled: true
+      max_pages: 100
+      scraping_timeout: 180  # 3 minutes
+      allowed_domains: []  # Empty means all domains allowed
+      blocked_domains:
+        - "malicious-site.com"
+        - "spam-site.com"
+      
+      # Scraping settings
+      respect_robots_txt: true
+      delay_between_requests: 1
+      max_concurrent_requests: 5
+
+    # Form Automation
+    form_automation:
+      enabled: true
+      max_forms_per_request: 10
+      automation_timeout: 120  # 2 minutes
+      allowed_domains: []  # Empty means all domains allowed
+      
+      # Form settings
+      max_form_fields: 50
+      max_file_uploads: 5
+      file_upload_size_limit: 5242880  # 5MB
+
+    # Report Generation
+    report_generation:
+      enabled: true
+      max_reports_per_request: 5
+      generation_timeout: 300  # 5 minutes
+      supported_formats:
+        - "pdf"
+        - "html"
+        - "docx"
+        - "xlsx"
+
+    # Excel Export
+    excel_export:
+      enabled: true
+      max_exports_per_request: 10
+      export_timeout: 180  # 3 minutes
+      max_rows: 100000
+      max_columns: 1000
+      supported_formats:
+        - "xlsx"
+        - "csv"
+        - "ods"
+
+  # API integration
+  api:
+    base_url: "${API_BASE_URL}"
+    timeout: 300  # 5 minutes
+    retry_attempts: 3
+    retry_delay: 1  # seconds
+    
+    # Authentication
+    api_key: "${API_KEY}"
+    api_secret: "${API_SECRET}"
+    
+    # Rate limiting
+    rate_limit:
+      enabled: true
+      requests_per_minute: 60
+      burst_limit: 10
+
+  # Database integration
+  database:
+    # Supabase connection
+    supabase_url: "${SUPABASE_URL}"
+    supabase_key: "${SUPABASE_ANON_KEY}"
+    
+    # Data persistence
+    save_all_requests: true
+    save_all_responses: true
+    save_user_sessions: true
+    
+    # Data retention
+    request_retention_days: 90
+    response_retention_days: 90
+    session_retention_days: 30
+
+  # Notifications
+  notifications:
+    # Success notifications
+    notify_on_success: true
+    success_message_template: "✅ Hoàn thành thành công!\n\nModule: {module}\nKết quả: {result}"
+    
+    # Error notifications
+    notify_on_error: true
+    error_message_template: "❌ Lỗi khi thực thi!\n\nModule: {module}\nLỗi: {error}"
+    
+    # Progress notifications
+    notify_progress: true
+    progress_interval: 30  # seconds
+    
+    # Admin notifications
+    notify_admins_on_error: true
+    admin_error_threshold: 5  # errors per hour
+
+  # Security
+  security:
+    # Input validation
+    validate_input: true
+    sanitize_input: true
+    max_input_length: 10000
+    
+    # File upload security
+    scan_uploaded_files: true
+    allowed_file_types:
+      - "csv"
+      - "json"
+      - "xlsx"
+      - "txt"
+      - "pdf"
+    
+    # Rate limiting
+    global_rate_limit:
+      enabled: true
+      requests_per_minute: 1000
+      burst_limit: 100
+    
+    # IP blocking
+    ip_blocking:
+      enabled: true
+      blocked_ips: []
+      max_requests_per_ip_per_minute: 100
+
+  # Logging
+  logging:
+    level: "INFO"
+    log_requests: true
+    log_responses: true
+    log_errors: true
+    log_user_actions: true
+    
+    # Log retention
+    log_retention_days: 30
+    max_log_file_size: 10485760  # 10MB
+    
+    # Log destinations
+    console: true
+    file: true
+    database: true
+
+  # Development
+  development:
+    debug: false
+    verbose_logging: false
+    mock_responses: false
+    
+    # Test settings
+    test_mode: false
+    test_user_id: "123456789"
+    test_chat_id: "123456789"

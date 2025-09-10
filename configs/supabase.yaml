@@ -1,0 +1,198 @@
+# Supabase Configuration for OpenManus-Youtu Integrated Framework
+# Database connection and configuration settings
+
+supabase:
+  # Main database connection
+  main:
+    url: "${SUPABASE_URL}"
+    key: "${SUPABASE_ANON_KEY}"
+    service_role_key: "${SUPABASE_SERVICE_ROLE_KEY}"
+    max_retries: 3
+    timeout: 30
+  
+  # Backup database connection (optional)
+  backup:
+    url: "${SUPABASE_BACKUP_URL}"
+    key: "${SUPABASE_BACKUP_KEY}"
+    max_retries: 3
+    timeout: 30
+
+# Database settings
+database:
+  # Connection pool settings
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+  
+  # Query settings
+  query_timeout: 60
+  max_query_size: 1000000
+  
+  # Transaction settings
+  auto_commit: true
+  isolation_level: "READ_COMMITTED"
+
+# Table configurations
+tables:
+  # Module requests table
+  module_requests:
+    enable_rls: true
+    retention_days: 90
+    max_records: 1000000
+  
+  # Telegram users table
+  telegram_users:
+    enable_rls: true
+    retention_days: 365
+    max_records: 100000
+  
+  # Telegram sessions table
+  telegram_sessions:
+    enable_rls: true
+    retention_days: 30
+    max_records: 10000
+    session_timeout: 86400  # 24 hours
+  
+  # Module-specific tables
+  cccd_generation_data:
+    enable_rls: true
+    retention_days: 180
+    max_records: 500000
+  
+  cccd_check_data:
+    enable_rls: true
+    retention_days: 180
+    max_records: 1000000
+  
+  tax_lookup_data:
+    enable_rls: true
+    retention_days: 180
+    max_records: 1000000
+  
+  data_analysis_data:
+    enable_rls: true
+    retention_days: 90
+    max_records: 100000
+  
+  web_scraping_data:
+    enable_rls: true
+    retention_days: 30
+    max_records: 50000
+  
+  form_automation_data:
+    enable_rls: true
+    retention_days: 30
+    max_records: 50000
+  
+  report_generation_data:
+    enable_rls: true
+    retention_days: 90
+    max_records: 100000
+  
+  excel_export_data:
+    enable_rls: true
+    retention_days: 30
+    max_records: 10000
+
+# Backup settings
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  compression: true
+  encryption: true
+  
+  # Backup locations
+  local_path: "backups/"
+  cloud_storage:
+    enabled: false
+    provider: "aws_s3"  # aws_s3, google_cloud, azure_blob
+    bucket: "${BACKUP_BUCKET}"
+    region: "${BACKUP_REGION}"
+
+# Migration settings
+migrations:
+  enabled: true
+  auto_migrate: true
+  backup_before_migrate: true
+  rollback_on_failure: true
+  
+  # Migration history
+  history_table: "migration_history"
+  max_history_records: 1000
+
+# Performance settings
+performance:
+  # Indexing
+  auto_create_indexes: true
+  index_optimization: true
+  
+  # Query optimization
+  query_cache: true
+  cache_ttl: 300  # 5 minutes
+  
+  # Connection optimization
+  connection_pooling: true
+  keep_alive: true
+  keep_alive_interval: 30
+
+# Security settings
+security:
+  # Row Level Security
+  enable_rls: true
+  rls_policies: true
+  
+  # Data encryption
+  encrypt_sensitive_data: true
+  encryption_key: "${ENCRYPTION_KEY}"
+  
+  # Access control
+  require_authentication: true
+  session_timeout: 3600  # 1 hour
+  
+  # Audit logging
+  audit_logging: true
+  log_all_queries: false
+  log_sensitive_operations: true
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  
+  # Health checks
+  health_check_interval: 60  # seconds
+  health_check_timeout: 10   # seconds
+  
+  # Metrics collection
+  collect_metrics: true
+  metrics_interval: 300  # 5 minutes
+  
+  # Alerting
+  alerts:
+    enabled: true
+    connection_failure: true
+    query_timeout: true
+    high_memory_usage: true
+    disk_space_low: true
+  
+  # Logging
+  log_level: "INFO"
+  log_queries: false
+  log_errors: true
+  log_performance: true
+
+# Development settings
+development:
+  # Debug mode
+  debug: false
+  verbose_logging: false
+  
+  # Test database
+  use_test_database: false
+  test_database_url: "${SUPABASE_TEST_URL}"
+  test_database_key: "${SUPABASE_TEST_KEY}"
+  
+  # Mock data
+  generate_mock_data: false
+  mock_data_size: 1000
