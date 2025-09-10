@@ -1,0 +1,24 @@
+{
+  "processes": {
+    "simple_server": {
+      "command": ["python3", "simple_server.py"],
+      "cwd": "/workspace/chungtasethanhcong-github",
+      "restart": true,
+      "monitor": true,
+      "env": {
+        "PORT": "8000"
+      }
+    },
+    "ngrok": {
+      "command": ["ngrok", "http", "8000"],
+      "cwd": "/workspace/chungtasethanhcong-github",
+      "restart": true,
+      "monitor": true
+    }
+  },
+  "monitoring": {
+    "interval": 30,
+    "max_restarts": 5,
+    "restart_delay": 5
+  }
+}

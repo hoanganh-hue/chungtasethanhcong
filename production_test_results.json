@@ -1,0 +1,72 @@
+{
+  "total_tests": 9,
+  "passed_tests": 1,
+  "success_rate": 0.1111111111111111,
+  "total_time": 0.8105354309082031,
+  "test_results": [
+    {
+      "test_name": "ngrok Tunnel",
+      "success": false,
+      "message": "Unexpected status: 404",
+      "duration": 0.12755823135375977,
+      "timestamp": "2025-09-10T21:11:16.310018"
+    },
+    {
+      "test_name": "Local Server",
+      "success": false,
+      "message": "Connection failed: All connection attempts failed",
+      "duration": 0.008616447448730469,
+      "timestamp": "2025-09-10T21:11:16.318719"
+    },
+    {
+      "test_name": "API Endpoints",
+      "success": true,
+      "message": "Success rate: 100.0% (6/6)",
+      "duration": 0.33916783332824707,
+      "timestamp": "2025-09-10T21:11:16.657949"
+    },
+    {
+      "test_name": "Telegram Webhook",
+      "success": false,
+      "message": "Unexpected status: 404",
+      "duration": 0.0599973201751709,
+      "timestamp": "2025-09-10T21:11:16.718031"
+    },
+    {
+      "test_name": "Gemini Integration",
+      "success": false,
+      "message": "API key not configured",
+      "duration": 1.239776611328125e-05,
+      "timestamp": "2025-09-10T21:11:16.718091"
+    },
+    {
+      "test_name": "AI Agent Creation",
+      "success": false,
+      "message": "HTTP error: 404",
+      "duration": 0.0592808723449707,
+      "timestamp": "2025-09-10T21:11:16.777417"
+    },
+    {
+      "test_name": "Vietnamese Language Support",
+      "success": false,
+      "message": "HTTP error: 404",
+      "duration": 0.06689906120300293,
+      "timestamp": "2025-09-10T21:11:16.844397"
+    },
+    {
+      "test_name": "CCCD Functionality",
+      "success": false,
+      "message": "HTTP error: 404",
+      "duration": 0.08077049255371094,
+      "timestamp": "2025-09-10T21:11:16.925251"
+    },
+    {
+      "test_name": "Performance",
+      "success": false,
+      "message": "Performance issues: 0/5 success, avg 0.01s",
+      "duration": 0.06756329536437988,
+      "timestamp": "2025-09-10T21:11:16.992881"
+    }
+  ],
+  "timestamp": "2025-09-10T21:11:16.992940"
+}
