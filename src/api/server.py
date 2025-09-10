@@ -18,9 +18,11 @@ from typing import Dict, Any
 from .routes import router
 from .unified_gemini_api import router as gemini_router
 from .simple_endpoints import router as simple_router
+from .telegram_webhook import router as telegram_router
 from .models import ErrorResponse
 from ..utils.logging_config import setup_logging
 from ..utils.environment_manager import EnvironmentManager
+from ..integrations.telegram_bot import initialize_telegram_bot
 
 # Setup logging
 logger = setup_logging(__name__)
@@ -39,8 +41,16 @@ async def lifespan(app: FastAPI):
     env_manager = EnvironmentManager()
     await env_manager.initialize()
     
+    # Initialize Telegram bot
+    telegram_bot = await initialize_telegram_bot()
+    if telegram_bot:
+        logger.info("Telegram bot initialized successfully")
+    else:
+        logger.warning("Telegram bot initialization failed")
+    
     # Register startup event
     app.state.env_manager = env_manager
+    app.state.telegram_bot = telegram_bot
     app.state.start_time = time.time()
     
     logger.info("API Server startup completed")
@@ -151,6 +161,9 @@ def create_app(
     
     # Include Simple endpoints
     app.include_router(simple_router, tags=["System"])
+    
+    # Include Telegram webhook endpoints
+    app.include_router(telegram_router, tags=["Telegram"])
     
     # Add root endpoint
     @app.get("/")
