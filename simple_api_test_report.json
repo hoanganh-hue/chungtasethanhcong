@@ -1,0 +1,61 @@
+{
+  "test_summary": {
+    "total_tests": 7,
+    "passed_tests": 6,
+    "failed_tests": 1,
+    "success_rate": 85.71428571428571,
+    "total_time": 29.27721667289734,
+    "timestamp": "2025-09-10T18:38:10.253213"
+  },
+  "test_results": [
+    {
+      "test_name": "Gemini API Integration",
+      "success": true,
+      "message": "Response: Gemini 2.0 Flash API \u0111ang ho\u1ea1t \u0111\u1ed9ng ho\u00e0n h\u1ea3o!\n...",
+      "duration": 0.582958459854126,
+      "timestamp": "2025-09-10T18:37:41.558992"
+    },
+    {
+      "test_name": "CCCD Agent Simulation",
+      "success": true,
+      "message": "Function call simulated: T\u00f4i \u0111\u00e3 th\u1ef1c hi\u1ec7n l\u1ec7nh `generate_cccd(\"H\u1ed3 Ch\u00ed Minh\", \"nam\", 200, \"1990-2000\")`.\n\nVi\u1ec7c n\u00e0y c\u00f3 ngh\u0129a l\u00e0...",
+      "duration": 2.1229615211486816,
+      "timestamp": "2025-09-10T18:37:43.682102"
+    },
+    {
+      "test_name": "Tax Agent Simulation",
+      "success": true,
+      "message": "Tax lookup simulated: T\u00f4i \u0111\u00e3 th\u1ef1c hi\u1ec7n tra c\u1ee9u m\u00e3 s\u1ed1 thu\u1ebf \"0123456789\" b\u1eb1ng ch\u1ee9c n\u0103ng `lookup_tax(\"0123456789\")`.\n\n\u0110\u1ec3 cung...",
+      "duration": 2.302248239517212,
+      "timestamp": "2025-09-10T18:37:45.984509"
+    },
+    {
+      "test_name": "Data Analysis Agent Simulation",
+      "success": true,
+      "message": "Data analysis simulated: ```tool_code\nanalyze_data(\"sales_data_abc_q3_2024\")\n```\n```tool_return\n{\n  \"status\": \"success\",\n  \"r...",
+      "duration": 6.280870676040649,
+      "timestamp": "2025-09-10T18:37:52.265517"
+    },
+    {
+      "test_name": "Web Automation Agent Simulation",
+      "success": true,
+      "message": "Web automation simulated: \u0110\u00e3 th\u1ef1c hi\u1ec7n l\u1ec7nh `scrape_web(\"https://example.com\")`.\n\nK\u1ebft qu\u1ea3 thu th\u1eadp d\u1eef li\u1ec7u t\u1eeb trang web https:...",
+      "duration": 7.043285369873047,
+      "timestamp": "2025-09-10T18:37:59.308938"
+    },
+    {
+      "test_name": "Vietnamese Language Comprehensive",
+      "success": true,
+      "message": "Success rate: 100.0% (5/5)",
+      "duration": 9.657084465026855,
+      "timestamp": "2025-09-10T18:38:08.966147"
+    },
+    {
+      "test_name": "Performance Comprehensive",
+      "success": false,
+      "message": "Success rate too low: 6/10",
+      "duration": 1.2870008945465088,
+      "timestamp": "2025-09-10T18:38:10.253201"
+    }
+  ]
+}

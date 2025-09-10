@@ -1,0 +1,100 @@
+# OpenManus-Youtu Integrated Framework Configuration
+# Production-ready configuration with Gemini 2.0 Flash integration
+
+# Environment Configuration
+environment: production
+debug: false
+log_level: info
+
+# Server Configuration
+host: "0.0.0.0"
+port: 8000
+workers: 4
+
+# Database Configuration
+database:
+  url: "sqlite:///./app.db"
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+  echo: false
+
+# Redis Configuration
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  password: null
+  decode_responses: true
+  socket_timeout: 5
+  socket_connect_timeout: 5
+  retry_on_timeout: true
+
+# Security Configuration
+security:
+  secret_key: "your-super-secret-key-change-this-in-production"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+  refresh_token_expire_days: 7
+  password_min_length: 8
+  max_login_attempts: 5
+  lockout_duration_minutes: 15
+
+# CORS Configuration
+cors:
+  allow_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+    - "https://yourdomain.com"
+  allow_credentials: true
+  allow_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+  allow_headers:
+    - "*"
+  max_age: 600
+
+# Gemini API Configuration
+gemini:
+  api_key: "AIzaSyAUnuPqbJfbcnIaTMjQvEXC4pqgoN3H3dU"
+  model: "gemini-2.0-flash"
+  temperature: 0.7
+  max_tokens: 2048
+  timeout: 30
+  retry_attempts: 3
+  enable_function_calling: true
+  enable_streaming: true
+  base_url: "https://generativelanguage.googleapis.com/v1beta"
+
+# Monitoring Configuration
+monitoring:
+  enable_metrics: true
+  metrics_port: 9090
+  enable_health_checks: true
+  health_check_interval: 30
+  enable_tracing: false
+  tracing_endpoint: null
+
+# Cache Configuration
+cache:
+  enable_cache: true
+  cache_ttl: 3600
+  max_cache_size: 1000
+  cache_backend: "memory"
+
+# Rate Limiting Configuration
+rate_limit:
+  enable_rate_limiting: true
+  requests_per_minute: 60
+  burst_size: 10
+  window_size: 60
+
+# Trusted Hosts
+trusted_hosts:
+  - "localhost"
+  - "127.0.0.1"
+  - "yourdomain.com"

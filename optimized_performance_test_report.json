@@ -1,0 +1,33 @@
+{
+  "test_summary": {
+    "total_tests": 3,
+    "passed_tests": 3,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "total_time": 15.115000009536743,
+    "timestamp": "2025-09-10T18:44:13.075694"
+  },
+  "test_results": [
+    {
+      "test_name": "Optimized Concurrent Requests",
+      "success": true,
+      "message": "Avg: 0.84s, Success: 8/8",
+      "duration": 1.0870780944824219,
+      "timestamp": "2025-09-10T18:43:59.047819"
+    },
+    {
+      "test_name": "Sequential Requests",
+      "success": true,
+      "message": "Avg: 0.70s, Success: 5/5",
+      "duration": 5.987018585205078,
+      "timestamp": "2025-09-10T18:44:05.034896"
+    },
+    {
+      "test_name": "Rate Limiting Handling",
+      "success": true,
+      "message": "Avg: 0.34s, Success: 4.5/6",
+      "duration": 8.04072880744934,
+      "timestamp": "2025-09-10T18:44:13.075676"
+    }
+  ]
+}

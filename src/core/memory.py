@@ -1,500 +1,500 @@
 """
-Unified Memory System.
-
-This module provides a unified memory system for agents, combining
-conversation memory, context management, and knowledge storage.
+Agent Memory System for OpenManus-Youtu Integrated Framework
+Advanced memory management for agents with persistence and retrieval
 """
 
+import asyncio
 import json
-import tiktoken
-from typing import Any, Dict, List, Optional, Union, Iterator
-from datetime import datetime
-from enum import Enum
+import logging
+from typing import Dict, List, Any, Optional, Union, Callable
 from dataclasses import dataclass, field
+from enum import Enum
+from datetime import datetime, timedelta
+import uuid
+import pickle
+import hashlib
+from pathlib import Path
+import sqlite3
+import threading
 
-from pydantic import BaseModel, Field, validator
+logger = logging.getLogger(__name__)
 
-from ..utils.logger import get_logger
+class MemoryType(Enum):
+    """Memory types for different information."""
+    CONVERSATION = "conversation"
+    KNOWLEDGE = "knowledge"
+    EXPERIENCE = "experience"
+    CONTEXT = "context"
+    PREFERENCE = "preference"
+    SKILL = "skill"
+    FACT = "fact"
+    PROCEDURE = "procedure"
 
-logger = get_logger(__name__)
-
-
-class MessageRole(str, Enum):
-    """Message roles in conversation."""
-    USER = "user"
-    ASSISTANT = "assistant"
-    SYSTEM = "system"
-    TOOL = "tool"
-    FUNCTION = "function"
-
-
-class MessageType(str, Enum):
-    """Message types for different content formats."""
-    TEXT = "text"
-    IMAGE = "image"
-    FILE = "file"
-    DATA = "data"
-    CODE = "code"
-    JSON = "json"
-    XML = "xml"
-
+class MemoryPriority(Enum):
+    """Memory priority levels."""
+    LOW = 1
+    NORMAL = 2
+    HIGH = 3
+    CRITICAL = 4
 
 @dataclass
-class Message:
-    """Represents a message in the conversation."""
-    role: MessageRole
-    content: str
-    message_type: MessageType = MessageType.TEXT
-    timestamp: datetime = field(default_factory=datetime.now)
+class MemoryEntry:
+    """Individual memory entry."""
+    memory_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    agent_id: str = ""
+    memory_type: MemoryType = MemoryType.KNOWLEDGE
+    content: Dict[str, Any] = field(default_factory=dict)
     metadata: Dict[str, Any] = field(default_factory=dict)
-    tool_calls: Optional[List[Dict[str, Any]]] = None
-    tool_call_id: Optional[str] = None
-    
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert message to dictionary."""
-        return {
-            "role": self.role.value,
-            "content": self.content,
-            "message_type": self.message_type.value,
-            "timestamp": self.timestamp.isoformat(),
-            "metadata": self.metadata,
-            "tool_calls": self.tool_calls,
-            "tool_call_id": self.tool_call_id
-        }
-    
-    @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "Message":
-        """Create message from dictionary."""
-        return cls(
-            role=MessageRole(data["role"]),
-            content=data["content"],
-            message_type=MessageType(data.get("message_type", "text")),
-            timestamp=datetime.fromisoformat(data["timestamp"]),
-            metadata=data.get("metadata", {}),
-            tool_calls=data.get("tool_calls"),
-            tool_call_id=data.get("tool_call_id")
-        )
+    priority: MemoryPriority = MemoryPriority.NORMAL
+    created_at: datetime = field(default_factory=datetime.now)
+    last_accessed: datetime = field(default_factory=datetime.now)
+    access_count: int = 0
+    expires_at: Optional[datetime] = None
+    tags: List[str] = field(default_factory=list)
+    embedding: Optional[List[float]] = None
 
+@dataclass
+class MemoryQuery:
+    """Memory query for retrieval."""
+    query_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    agent_id: str = ""
+    query_text: str = ""
+    memory_types: List[MemoryType] = field(default_factory=list)
+    tags: List[str] = field(default_factory=list)
+    limit: int = 10
+    similarity_threshold: float = 0.7
+    time_range: Optional[tuple] = None
+    priority_filter: Optional[MemoryPriority] = None
 
-class MemoryChunk(BaseModel):
-    """Represents a chunk of memory with metadata."""
-    id: str = Field(..., description="Unique chunk identifier")
-    content: str = Field(..., description="Chunk content")
-    chunk_type: str = Field(default="conversation", description="Type of chunk")
-    importance: float = Field(default=0.5, ge=0.0, le=1.0, description="Importance score")
-    timestamp: datetime = Field(default_factory=datetime.now, description="Creation timestamp")
-    metadata: Dict[str, Any] = Field(default_factory=dict, description="Additional metadata")
-    tags: List[str] = Field(default_factory=list, description="Tags for categorization")
+class UnifiedMemory:
+    """Unified memory system for backward compatibility."""
     
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert chunk to dictionary."""
-        return self.model_dump()
+    def __init__(self, agent_id: str, max_memories: int = 10000, persistence_enabled: bool = True):
+        self.agent_memory = AgentMemory(agent_id, max_memories, persistence_enabled)
+    
+    def store_memory(self, memory_type, content, metadata=None, priority=None, tags=None, expires_at=None):
+        return self.agent_memory.store_memory(memory_type, content, metadata, priority, tags, expires_at)
+    
+    def retrieve_memories(self, query):
+        return self.agent_memory.retrieve_memories(query)
+    
+    def search_memories(self, search_text, memory_types=None, limit=10):
+        return self.agent_memory.search_memories(search_text, memory_types, limit)
+    
+    def get_memory_statistics(self):
+        return self.agent_memory.get_memory_statistics()
 
-
-class UnifiedMemory(BaseModel):
-    """
-    Unified memory system for agents.
+class AgentMemory:
+    """Individual agent memory system."""
     
-    This class provides a comprehensive memory system that combines
-    conversation memory, context management, and knowledge storage.
-    """
-    
-    # Core memory storage
-    messages: List[Message] = Field(default_factory=list, description="Conversation messages")
-    chunks: List[MemoryChunk] = Field(default_factory=list, description="Memory chunks")
-    
-    # Configuration
-    max_messages: int = Field(default=1000, description="Maximum number of messages")
-    max_chunks: int = Field(default=10000, description="Maximum number of chunks")
-    max_context_tokens: int = Field(default=4000, description="Maximum context tokens")
-    
-    # Token counting
-    token_encoder: Optional[tiktoken.Encoding] = None
-    
-    class Config:
-        arbitrary_types_allowed = True
-    
-    def __init__(self, **data):
-        """Initialize unified memory."""
-        super().__init__(**data)
+    def __init__(self, agent_id: str, max_memories: int = 10000, persistence_enabled: bool = True):
+        self.agent_id = agent_id
+        self.max_memories = max_memories
+        self.persistence_enabled = persistence_enabled
+        self.memories: Dict[str, MemoryEntry] = {}
+        self.memory_index: Dict[str, List[str]] = {}  # tag -> memory_ids
+        self.type_index: Dict[MemoryType, List[str]] = {}  # type -> memory_ids
+        self.lock = threading.RLock()
         
-        # Initialize token encoder
+        # Initialize type index
+        for memory_type in MemoryType:
+            self.type_index[memory_type] = []
+        
+        # Setup persistence
+        if persistence_enabled:
+            self.db_path = Path(f"data/memory_{agent_id}.db")
+            self.db_path.parent.mkdir(parents=True, exist_ok=True)
+            self._init_database()
+            asyncio.create_task(self._load_from_database())
+    
+    def _init_database(self) -> None:
+        """Initialize SQLite database for memory persistence."""
         try:
-            self.token_encoder = tiktoken.get_encoding("cl100k_base")
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS memories (
+                        memory_id TEXT PRIMARY KEY,
+                        agent_id TEXT NOT NULL,
+                        memory_type TEXT NOT NULL,
+                        content TEXT NOT NULL,
+                        metadata TEXT NOT NULL,
+                        priority INTEGER NOT NULL,
+                        created_at TEXT NOT NULL,
+                        last_accessed TEXT NOT NULL,
+                        access_count INTEGER NOT NULL,
+                        expires_at TEXT,
+                        tags TEXT NOT NULL,
+                        embedding TEXT
+                    )
+                """)
+                
+                conn.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_agent_id ON memories(agent_id)
+                """)
+                
+                conn.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_memory_type ON memories(memory_type)
+                """)
+                
+                conn.execute("""
+                    CREATE INDEX IF NOT EXISTS idx_created_at ON memories(created_at)
+                """)
+                
+                conn.commit()
         except Exception as e:
-            logger.warning(f"Failed to initialize token encoder: {e}")
-            self.token_encoder = None
+            logger.error(f"Failed to initialize memory database: {e}")
     
-    def add_message(
-        self,
-        role: Union[MessageRole, str],
-        content: str,
-        message_type: MessageType = MessageType.TEXT,
-        metadata: Optional[Dict[str, Any]] = None,
-        tool_calls: Optional[List[Dict[str, Any]]] = None,
-        tool_call_id: Optional[str] = None
-    ) -> None:
-        """
-        Add a message to the conversation.
-        
-        Args:
-            role: Message role
-            content: Message content
-            message_type: Type of message content
-            metadata: Additional metadata
-            tool_calls: Tool calls associated with message
-            tool_call_id: Tool call ID for tool responses
-        """
-        # Convert string role to enum
-        if isinstance(role, str):
-            role = MessageRole(role)
-        
-        message = Message(
-            role=role,
-            content=content,
-            message_type=message_type,
-            metadata=metadata or {},
-            tool_calls=tool_calls,
-            tool_call_id=tool_call_id
-        )
-        
-        self.messages.append(message)
-        
-        # Trim messages if necessary
-        if len(self.messages) > self.max_messages:
-            self.messages = self.messages[-self.max_messages:]
-        
-        logger.debug(f"Added {role.value} message: {content[:100]}...")
-    
-    def add_chunk(
-        self,
-        content: str,
-        chunk_type: str = "conversation",
-        importance: float = 0.5,
-        metadata: Optional[Dict[str, Any]] = None,
-        tags: Optional[List[str]] = None
-    ) -> str:
-        """
-        Add a memory chunk.
-        
-        Args:
-            content: Chunk content
-            chunk_type: Type of chunk
-            importance: Importance score (0.0 to 1.0)
-            metadata: Additional metadata
-            tags: Tags for categorization
-            
-        Returns:
-            Chunk ID
-        """
-        chunk_id = f"chunk_{len(self.chunks)}_{datetime.now().timestamp()}"
-        
-        chunk = MemoryChunk(
-            id=chunk_id,
-            content=content,
-            chunk_type=chunk_type,
-            importance=importance,
-            metadata=metadata or {},
-            tags=tags or []
-        )
-        
-        self.chunks.append(chunk)
-        
-        # Trim chunks if necessary
-        if len(self.chunks) > self.max_chunks:
-            # Remove least important chunks
-            self.chunks.sort(key=lambda x: x.importance, reverse=True)
-            self.chunks = self.chunks[:self.max_chunks]
-        
-        logger.debug(f"Added memory chunk: {chunk_id}")
-        return chunk_id
-    
-    def get_messages(
-        self,
-        role: Optional[Union[MessageRole, str]] = None,
-        limit: Optional[int] = None,
-        include_metadata: bool = False
-    ) -> List[Union[Message, Dict[str, Any]]]:
-        """
-        Get messages from memory.
-        
-        Args:
-            role: Filter by role
-            limit: Maximum number of messages
-            include_metadata: Whether to include metadata
-            
-        Returns:
-            List of messages
-        """
-        messages = self.messages
-        
-        # Filter by role
-        if role:
-            if isinstance(role, str):
-                role = MessageRole(role)
-            messages = [msg for msg in messages if msg.role == role]
-        
-        # Apply limit
-        if limit:
-            messages = messages[-limit:]
-        
-        # Convert to dict if metadata not needed
-        if not include_metadata:
-            return [msg.to_dict() for msg in messages]
-        
-        return messages
-    
-    def get_context(
-        self,
-        max_tokens: Optional[int] = None,
-        include_system: bool = True,
-        include_tools: bool = True
-    ) -> List[Dict[str, Any]]:
-        """
-        Get context for LLM with token limit.
-        
-        Args:
-            max_tokens: Maximum tokens (uses max_context_tokens if None)
-            include_system: Whether to include system messages
-            include_tools: Whether to include tool messages
-            
-        Returns:
-            List of messages for context
-        """
-        if max_tokens is None:
-            max_tokens = self.max_context_tokens
-        
-        context = []
-        current_tokens = 0
-        
-        # Start from most recent messages
-        for message in reversed(self.messages):
-            # Skip system messages if not requested
-            if not include_system and message.role == MessageRole.SYSTEM:
-                continue
-            
-            # Skip tool messages if not requested
-            if not include_tools and message.role == MessageRole.TOOL:
-                continue
-            
-            # Count tokens
-            message_tokens = self._count_tokens(message.content)
-            
-            # Check if adding this message would exceed limit
-            if current_tokens + message_tokens > max_tokens:
-                break
-            
-            context.insert(0, message.to_dict())
-            current_tokens += message_tokens
-        
-        logger.debug(f"Generated context with {len(context)} messages, {current_tokens} tokens")
-        return context
-    
-    def search_chunks(
-        self,
-        query: str,
-        chunk_type: Optional[str] = None,
-        min_importance: float = 0.0,
-        limit: int = 10
-    ) -> List[MemoryChunk]:
-        """
-        Search memory chunks.
-        
-        Args:
-            query: Search query
-            chunk_type: Filter by chunk type
-            min_importance: Minimum importance score
-            limit: Maximum number of results
-            
-        Returns:
-            List of matching chunks
-        """
-        results = []
-        
-        for chunk in self.chunks:
-            # Filter by type
-            if chunk_type and chunk.chunk_type != chunk_type:
-                continue
-            
-            # Filter by importance
-            if chunk.importance < min_importance:
-                continue
-            
-            # Simple text search (could be enhanced with embeddings)
-            if query.lower() in chunk.content.lower():
-                results.append(chunk)
-        
-        # Sort by importance and timestamp
-        results.sort(key=lambda x: (x.importance, x.timestamp), reverse=True)
-        
-        return results[:limit]
-    
-    def get_chunks_by_tags(self, tags: List[str], limit: int = 10) -> List[MemoryChunk]:
-        """
-        Get chunks by tags.
-        
-        Args:
-            tags: List of tags to match
-            limit: Maximum number of results
-            
-        Returns:
-            List of matching chunks
-        """
-        results = []
-        
-        for chunk in self.chunks:
-            if any(tag in chunk.tags for tag in tags):
-                results.append(chunk)
-        
-        # Sort by importance and timestamp
-        results.sort(key=lambda x: (x.importance, x.timestamp), reverse=True)
-        
-        return results[:limit]
-    
-    def update_chunk_importance(self, chunk_id: str, importance: float) -> bool:
-        """
-        Update chunk importance.
-        
-        Args:
-            chunk_id: Chunk ID
-            importance: New importance score
-            
-        Returns:
-            True if updated, False if chunk not found
-        """
-        for chunk in self.chunks:
-            if chunk.id == chunk_id:
-                chunk.importance = max(0.0, min(1.0, importance))
-                logger.debug(f"Updated chunk {chunk_id} importance to {importance}")
-                return True
-        
-        logger.warning(f"Chunk {chunk_id} not found for importance update")
-        return False
-    
-    def remove_chunk(self, chunk_id: str) -> bool:
-        """
-        Remove a chunk.
-        
-        Args:
-            chunk_id: Chunk ID to remove
-            
-        Returns:
-            True if removed, False if chunk not found
-        """
-        for i, chunk in enumerate(self.chunks):
-            if chunk.id == chunk_id:
-                del self.chunks[i]
-                logger.debug(f"Removed chunk {chunk_id}")
-                return True
-        
-        logger.warning(f"Chunk {chunk_id} not found for removal")
-        return False
-    
-    def clear(self) -> None:
-        """Clear all memory."""
-        self.messages.clear()
-        self.chunks.clear()
-        logger.info("Memory cleared")
-    
-    def clear_messages(self) -> None:
-        """Clear conversation messages."""
-        self.messages.clear()
-        logger.info("Messages cleared")
-    
-    def clear_chunks(self) -> None:
-        """Clear memory chunks."""
-        self.chunks.clear()
-        logger.info("Chunks cleared")
-    
-    def get_stats(self) -> Dict[str, Any]:
-        """Get memory statistics."""
-        total_tokens = sum(self._count_tokens(msg.content) for msg in self.messages)
-        
-        return {
-            "message_count": len(self.messages),
-            "chunk_count": len(self.chunks),
-            "total_tokens": total_tokens,
-            "max_messages": self.max_messages,
-            "max_chunks": self.max_chunks,
-            "max_context_tokens": self.max_context_tokens,
-            "memory_usage": {
-                "messages": len(self.messages) / self.max_messages,
-                "chunks": len(self.chunks) / self.max_chunks,
-                "tokens": total_tokens / self.max_context_tokens
-            }
-        }
-    
-    def _count_tokens(self, text: str) -> int:
-        """Count tokens in text."""
-        if not self.token_encoder:
-            # Fallback: rough estimation
-            return len(text.split()) * 1.3
-        
+    async def _load_from_database(self) -> None:
+        """Load memories from database."""
         try:
-            return len(self.token_encoder.encode(text))
-        except Exception:
-            # Fallback: rough estimation
-            return len(text.split()) * 1.3
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.execute("""
+                    SELECT * FROM memories WHERE agent_id = ?
+                """, (self.agent_id,))
+                
+                for row in cursor.fetchall():
+                    memory = MemoryEntry(
+                        memory_id=row[0],
+                        agent_id=row[1],
+                        memory_type=MemoryType(row[2]),
+                        content=json.loads(row[3]),
+                        metadata=json.loads(row[4]),
+                        priority=MemoryPriority(row[5]),
+                        created_at=datetime.fromisoformat(row[6]),
+                        last_accessed=datetime.fromisoformat(row[7]),
+                        access_count=row[8],
+                        expires_at=datetime.fromisoformat(row[9]) if row[9] else None,
+                        tags=json.loads(row[10]),
+                        embedding=json.loads(row[11]) if row[11] else None
+                    )
+                    
+                    with self.lock:
+                        self.memories[memory.memory_id] = memory
+                        self._update_indexes(memory)
+                
+                logger.info(f"Loaded {len(self.memories)} memories for agent {self.agent_id}")
+        except Exception as e:
+            logger.error(f"Failed to load memories from database: {e}")
     
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert memory to dictionary."""
-        return {
-            "messages": [msg.to_dict() for msg in self.messages],
-            "chunks": [chunk.to_dict() for chunk in self.chunks],
-            "config": {
-                "max_messages": self.max_messages,
-                "max_chunks": self.max_chunks,
-                "max_context_tokens": self.max_context_tokens
-            }
-        }
+    def store_memory(self, memory_type: MemoryType, content: Dict[str, Any], 
+                    metadata: Dict[str, Any] = None, priority: MemoryPriority = MemoryPriority.NORMAL,
+                    tags: List[str] = None, expires_at: Optional[datetime] = None) -> str:
+        """Store a new memory."""
+        with self.lock:
+            # Check memory limit
+            if len(self.memories) >= self.max_memories:
+                self._evict_old_memories()
+            
+            memory = MemoryEntry(
+                agent_id=self.agent_id,
+                memory_type=memory_type,
+                content=content,
+                metadata=metadata or {},
+                priority=priority,
+                tags=tags or [],
+                expires_at=expires_at
+            )
+            
+            self.memories[memory.memory_id] = memory
+            self._update_indexes(memory)
+            
+            # Persist to database
+            if self.persistence_enabled:
+                asyncio.create_task(self._persist_memory(memory))
+            
+            logger.debug(f"Stored memory: {memory.memory_id}")
+            return memory.memory_id
     
-    def save_to_file(self, file_path: str) -> None:
-        """Save memory to file."""
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"Memory saved to {file_path}")
+    def retrieve_memories(self, query: MemoryQuery) -> List[MemoryEntry]:
+        """Retrieve memories based on query."""
+        with self.lock:
+            candidates = []
+            
+            # Filter by memory types
+            if query.memory_types:
+                for memory_type in query.memory_types:
+                    candidates.extend(self.type_index.get(memory_type, []))
+            else:
+                candidates = list(self.memories.keys())
+            
+            # Filter by tags
+            if query.tags:
+                tag_filtered = []
+                for memory_id in candidates:
+                    memory = self.memories.get(memory_id)
+                    if memory and any(tag in memory.tags for tag in query.tags):
+                        tag_filtered.append(memory_id)
+                candidates = tag_filtered
+            
+            # Filter by time range
+            if query.time_range:
+                time_filtered = []
+                start_time, end_time = query.time_range
+                for memory_id in candidates:
+                    memory = self.memories.get(memory_id)
+                    if memory and start_time <= memory.created_at <= end_time:
+                        time_filtered.append(memory_id)
+                candidates = time_filtered
+            
+            # Filter by priority
+            if query.priority_filter:
+                priority_filtered = []
+                for memory_id in candidates:
+                    memory = self.memories.get(memory_id)
+                    if memory and memory.priority.value >= query.priority_filter.value:
+                        priority_filtered.append(memory_id)
+                candidates = priority_filtered
+            
+            # Get memory entries and sort by relevance
+            memories = [self.memories[memory_id] for memory_id in candidates if memory_id in self.memories]
+            
+            # Sort by access count and recency
+            memories.sort(key=lambda m: (m.access_count, m.last_accessed), reverse=True)
+            
+            # Update access information
+            for memory in memories[:query.limit]:
+                memory.last_accessed = datetime.now()
+                memory.access_count += 1
+            
+            return memories[:query.limit]
     
-    @classmethod
-    def load_from_file(cls, file_path: str) -> "UnifiedMemory":
-        """Load memory from file."""
-        with open(file_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        
-        memory = cls()
-        
-        # Load messages
-        for msg_data in data.get("messages", []):
-            message = Message.from_dict(msg_data)
-            memory.messages.append(message)
-        
-        # Load chunks
-        for chunk_data in data.get("chunks", []):
-            chunk = MemoryChunk(**chunk_data)
-            memory.chunks.append(chunk)
-        
-        # Load config
-        config = data.get("config", {})
-        memory.max_messages = config.get("max_messages", 1000)
-        memory.max_chunks = config.get("max_chunks", 10000)
-        memory.max_context_tokens = config.get("max_context_tokens", 4000)
-        
-        logger.info(f"Memory loaded from {file_path}")
-        return memory
-    
-    def __len__(self) -> int:
-        """Return total number of items in memory."""
-        return len(self.messages) + len(self.chunks)
-    
-    def __str__(self) -> str:
-        """String representation of memory."""
-        return f"UnifiedMemory(messages={len(self.messages)}, chunks={len(self.chunks)})"
-    
-    def __repr__(self) -> str:
-        """Detailed string representation of memory."""
-        stats = self.get_stats()
-        return (
-            f"UnifiedMemory(messages={stats['message_count']}, "
-            f"chunks={stats['chunk_count']}, "
-            f"tokens={stats['total_tokens']})"
+    def search_memories(self, search_text: str, memory_types: List[MemoryType] = None,
+                       limit: int = 10) -> List[MemoryEntry]:
+        """Search memories by text content."""
+        query = MemoryQuery(
+            agent_id=self.agent_id,
+            query_text=search_text,
+            memory_types=memory_types or [],
+            limit=limit
         )
+        
+        memories = self.retrieve_memories(query)
+        
+        # Simple text matching (can be enhanced with embeddings)
+        search_lower = search_text.lower()
+        scored_memories = []
+        
+        for memory in memories:
+            score = 0
+            content_str = json.dumps(memory.content).lower()
+            
+            # Count keyword matches
+            for word in search_lower.split():
+                if word in content_str:
+                    score += 1
+            
+            # Check tags
+            for tag in memory.tags:
+                if search_lower in tag.lower():
+                    score += 2
+            
+            if score > 0:
+                scored_memories.append((score, memory))
+        
+        # Sort by score
+        scored_memories.sort(key=lambda x: x[0], reverse=True)
+        
+        return [memory for score, memory in scored_memories[:limit]]
+    
+    def update_memory(self, memory_id: str, updates: Dict[str, Any]) -> bool:
+        """Update an existing memory."""
+        with self.lock:
+            if memory_id not in self.memories:
+                return False
+            
+            memory = self.memories[memory_id]
+            memory.content.update(updates)
+            memory.last_accessed = datetime.now()
+            
+            # Persist changes
+            if self.persistence_enabled:
+                asyncio.create_task(self._persist_memory(memory))
+            
+            return True
+    
+    def delete_memory(self, memory_id: str) -> bool:
+        """Delete a memory."""
+        with self.lock:
+            if memory_id not in self.memories:
+                return False
+            
+            memory = self.memories[memory_id]
+            
+            # Remove from indexes
+            self._remove_from_indexes(memory)
+            del self.memories[memory_id]
+            
+            # Remove from database
+            if self.persistence_enabled:
+                asyncio.create_task(self._delete_from_database(memory_id))
+            
+            logger.debug(f"Deleted memory: {memory_id}")
+            return True
+    
+    def get_memory_statistics(self) -> Dict[str, Any]:
+        """Get memory statistics."""
+        with self.lock:
+            return {
+                "total_memories": len(self.memories),
+                "memory_types": {
+                    memory_type.value: len(memory_ids)
+                    for memory_type, memory_ids in self.type_index.items()
+                },
+                "total_tags": len(self.memory_index),
+                "most_accessed": sorted(
+                    self.memories.values(),
+                    key=lambda m: m.access_count,
+                    reverse=True
+                )[:5],
+                "recent_memories": sorted(
+                    self.memories.values(),
+                    key=lambda m: m.created_at,
+                    reverse=True
+                )[:5]
+            }
+    
+    def _update_indexes(self, memory: MemoryEntry) -> None:
+        """Update memory indexes."""
+        # Update type index
+        if memory.memory_id not in self.type_index[memory.memory_type]:
+            self.type_index[memory.memory_type].append(memory.memory_id)
+        
+        # Update tag index
+        for tag in memory.tags:
+            if tag not in self.memory_index:
+                self.memory_index[tag] = []
+            if memory.memory_id not in self.memory_index[tag]:
+                self.memory_index[tag].append(memory.memory_id)
+    
+    def _remove_from_indexes(self, memory: MemoryEntry) -> None:
+        """Remove memory from indexes."""
+        # Remove from type index
+        if memory.memory_id in self.type_index[memory.memory_type]:
+            self.type_index[memory.memory_type].remove(memory.memory_id)
+        
+        # Remove from tag index
+        for tag in memory.tags:
+            if tag in self.memory_index and memory.memory_id in self.memory_index[tag]:
+                self.memory_index[tag].remove(memory.memory_id)
+    
+    def _evict_old_memories(self) -> None:
+        """Evict old, less important memories."""
+        # Sort by priority, access count, and recency
+        memories_to_evict = sorted(
+            self.memories.values(),
+            key=lambda m: (m.priority.value, m.access_count, m.last_accessed)
+        )
+        
+        # Remove 10% of memories
+        evict_count = max(1, len(self.memories) // 10)
+        
+        for memory in memories_to_evict[:evict_count]:
+            self.delete_memory(memory.memory_id)
+    
+    async def _persist_memory(self, memory: MemoryEntry) -> None:
+        """Persist memory to database."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute("""
+                    INSERT OR REPLACE INTO memories VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    memory.memory_id,
+                    memory.agent_id,
+                    memory.memory_type.value,
+                    json.dumps(memory.content),
+                    json.dumps(memory.metadata),
+                    memory.priority.value,
+                    memory.created_at.isoformat(),
+                    memory.last_accessed.isoformat(),
+                    memory.access_count,
+                    memory.expires_at.isoformat() if memory.expires_at else None,
+                    json.dumps(memory.tags),
+                    json.dumps(memory.embedding) if memory.embedding else None
+                ))
+                conn.commit()
+        except Exception as e:
+            logger.error(f"Failed to persist memory: {e}")
+    
+    async def _delete_from_database(self, memory_id: str) -> None:
+        """Delete memory from database."""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.execute("DELETE FROM memories WHERE memory_id = ?", (memory_id,))
+                conn.commit()
+        except Exception as e:
+            logger.error(f"Failed to delete memory from database: {e}")
+
+class MemoryManager:
+    """Global memory manager for all agents."""
+    
+    def __init__(self):
+        self.agent_memories: Dict[str, AgentMemory] = {}
+        self.shared_memories: Dict[str, MemoryEntry] = {}
+        self.lock = threading.RLock()
+    
+    def get_agent_memory(self, agent_id: str) -> AgentMemory:
+        """Get or create memory for an agent."""
+        with self.lock:
+            if agent_id not in self.agent_memories:
+                self.agent_memories[agent_id] = AgentMemory(agent_id)
+            return self.agent_memories[agent_id]
+    
+    def store_shared_memory(self, content: Dict[str, Any], memory_type: MemoryType = MemoryType.KNOWLEDGE,
+                           tags: List[str] = None) -> str:
+        """Store shared memory accessible by all agents."""
+        with self.lock:
+            memory = MemoryEntry(
+                memory_type=memory_type,
+                content=content,
+                tags=tags or [],
+                priority=MemoryPriority.HIGH
+            )
+            self.shared_memories[memory.memory_id] = memory
+            return memory.memory_id
+    
+    def get_shared_memories(self, tags: List[str] = None, limit: int = 10) -> List[MemoryEntry]:
+        """Get shared memories."""
+        with self.lock:
+            memories = list(self.shared_memories.values())
+            
+            if tags:
+                memories = [m for m in memories if any(tag in m.tags for tag in tags)]
+            
+            return memories[:limit]
+    
+    def get_memory_statistics(self) -> Dict[str, Any]:
+        """Get global memory statistics."""
+        with self.lock:
+            return {
+                "total_agents": len(self.agent_memories),
+                "total_shared_memories": len(self.shared_memories),
+                "agent_memory_stats": {
+                    agent_id: memory.get_memory_statistics()
+                    for agent_id, memory in self.agent_memories.items()
+                }
+            }
+
+# Global memory manager
+memory_manager = MemoryManager()
+
+# Convenience functions
+def get_agent_memory(agent_id: str) -> AgentMemory:
+    """Get agent memory."""
+    return memory_manager.get_agent_memory(agent_id)
+
+def store_agent_memory(agent_id: str, memory_type: MemoryType, content: Dict[str, Any],
+                      metadata: Dict[str, Any] = None, tags: List[str] = None) -> str:
+    """Store memory for an agent."""
+    memory = get_agent_memory(agent_id)
+    return memory.store_memory(memory_type, content, metadata, tags=tags)
+
+def retrieve_agent_memories(agent_id: str, query: MemoryQuery) -> List[MemoryEntry]:
+    """Retrieve memories for an agent."""
+    memory = get_agent_memory(agent_id)
+    return memory.retrieve_memories(query)
+
+def search_agent_memories(agent_id: str, search_text: str, memory_types: List[MemoryType] = None,
+                         limit: int = 10) -> List[MemoryEntry]:
+    """Search memories for an agent."""
+    memory = get_agent_memory(agent_id)
+    return memory.search_memories(search_text, memory_types, limit)

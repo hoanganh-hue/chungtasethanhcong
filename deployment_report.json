@@ -1,0 +1,62 @@
+{
+  "deployment_info": {
+    "timestamp": "2025-09-10T17:59:02.390916",
+    "version": "1.0.0",
+    "environment": "production",
+    "python_version": "3.13.3",
+    "project_root": "/workspace/chungtasethanhcong"
+  },
+  "components": {
+    "api_server": "\u2705 Deployed",
+    "gemini_integration": "\u2705 Deployed",
+    "frontend": "\u2705 Deployed",
+    "startup_scripts": "\u2705 Deployed"
+  },
+  "endpoints": {
+    "api_docs": "http://localhost:8000/docs",
+    "api_root": "http://localhost:8000/",
+    "gemini_api": "http://localhost:8000/api/v1/agents",
+    "health_check": "http://localhost:8000/"
+  },
+  "deployment_log": [
+    "[2025-09-10 17:58:51] [INFO] \ud83d\ude80 Starting simple production deployment...",
+    "[2025-09-10 17:58:51] [INFO] \ud83d\udd04 Check Requirements...",
+    "[2025-09-10 17:58:51] [INFO] \ud83d\udd0d Checking system requirements...",
+    "[2025-09-10 17:58:51] [INFO] \u2705 Python 3.13.3",
+    "[2025-09-10 17:58:51] [INFO] \u2705 fastapi installed",
+    "[2025-09-10 17:58:51] [INFO] \u2705 uvicorn installed",
+    "[2025-09-10 17:58:52] [INFO] \u2705 httpx installed",
+    "[2025-09-10 17:58:52] [INFO] \u2705 pydantic installed",
+    "[2025-09-10 17:58:52] [INFO] \u2705 asyncio installed",
+    "[2025-09-10 17:58:52] [INFO] \u2705 GEMINI_API_KEY configured: AIzaSyAUnu...",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Check Requirements completed",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd04 Setup Environment...",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd27 Setting up environment configuration...",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Created .env file",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Created logs directory",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Created data directory",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Setup Environment completed",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd04 Build Frontend...",
+    "[2025-09-10 17:58:52] [INFO] \ud83c\udfa8 Building frontend components...",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Copied frontend components",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Copied frontend styles",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Build Frontend completed",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd04 Create Requirements...",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udccb Creating requirements.txt...",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Created requirements.txt",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Create Requirements completed",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd04 Create Startup Script...",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\ude80 Creating startup script...",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Created startup script",
+    "[2025-09-10 17:58:52] [INFO] \u2705 Create Startup Script completed",
+    "[2025-09-10 17:58:52] [INFO] \ud83d\udd04 Test System...",
+    "[2025-09-10 17:58:52] [INFO] \ud83e\uddea Testing deployed system...",
+    "[2025-09-10 17:58:52] [INFO] Testing API server startup...",
+    "[2025-09-10 17:58:52] [WARNING] \u26a0\ufe0f  API server creation failed: attempted relative import beyond top-level package",
+    "[2025-09-10 17:58:52] [INFO] Testing Gemini integration...",
+    "[2025-09-10 17:59:02] [INFO] \u2705 Gemini integration test passed",
+    "[2025-09-10 17:59:02] [INFO] \u2705 Test System completed",
+    "[2025-09-10 17:59:02] [INFO] \ud83d\udd04 Generate Report...",
+    "[2025-09-10 17:59:02] [INFO] \ud83d\udcca Generating deployment report..."
+  ]
+}

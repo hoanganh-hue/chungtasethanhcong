@@ -1,0 +1,68 @@
+{
+  "test_summary": {
+    "total_tests": 8,
+    "passed_tests": 8,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "total_time": 5.28485894203186,
+    "timestamp": "2025-09-10T18:11:26.575779"
+  },
+  "test_results": [
+    {
+      "test_name": "Environment Setup",
+      "success": true,
+      "message": "Python 3.13.3",
+      "duration": 0.21731328964233398,
+      "timestamp": "2025-09-10T18:11:21.508263"
+    },
+    {
+      "test_name": "Gemini 2.0 Flash",
+      "success": true,
+      "message": "Response: Gemini 2.0 Flash is working!\n\n**Gemini 2.0 Flash \u0111...",
+      "duration": 0.5338437557220459,
+      "timestamp": "2025-09-10T18:11:22.042138"
+    },
+    {
+      "test_name": "CCCD Generation Simulation",
+      "success": true,
+      "message": "Response: \u0110\u00e3 th\u1ef1c hi\u1ec7n t\u1ea1o 100 CCCD cho t\u1ec9nh H\u01b0ng Y\u00ean, gi\u1edbi t\u00ednh n\u1eef, n\u0103m sinh t\u1eeb 1965 \u0111\u1ebfn 1975. Chi ti\u1ebft \u0111\u00e3 \u0111\u01b0...",
+      "duration": 1.1623201370239258,
+      "timestamp": "2025-09-10T18:11:23.204564"
+    },
+    {
+      "test_name": "Tax Lookup Simulation",
+      "success": true,
+      "message": "Response: \u0110\u00e3 th\u1ef1c hi\u1ec7n tra c\u1ee9u m\u00e3 s\u1ed1 thu\u1ebf 037178000015. K\u1ebft qu\u1ea3 nh\u01b0 sau:\n\n**(L\u01b0u \u00fd: \u0110\u00e2y l\u00e0 th\u00f4ng tin gi\u1ea3 \u0111\u1ecbnh,...",
+      "duration": 1.7721061706542969,
+      "timestamp": "2025-09-10T18:11:24.976780"
+    },
+    {
+      "test_name": "Vietnamese Language Support",
+      "success": true,
+      "message": "Response: Ch\u00e0o b\u1ea1n! T\u00f4i c\u00f3 th\u1ec3 gi\u00fap b\u1ea1n tr\u1ea3 l\u1eddi c\u00e2u h\u1ecfi, vi\u1ebft v\u0103n b\u1ea3n, d\u1ecbch thu\u1eadt, t\u00f3m t\u1eaft th\u00f4ng tin, \u0111\u01b0a ra \u00fd...",
+      "duration": 0.918818473815918,
+      "timestamp": "2025-09-10T18:11:25.895699"
+    },
+    {
+      "test_name": "Performance",
+      "success": true,
+      "message": "Avg: 0.58s, Total chars: 275",
+      "duration": 0.6797058582305908,
+      "timestamp": "2025-09-10T18:11:26.575494"
+    },
+    {
+      "test_name": "File Structure",
+      "success": true,
+      "message": "All 5 files and 10 directories present",
+      "duration": 0.00018405914306640625,
+      "timestamp": "2025-09-10T18:11:26.575692"
+    },
+    {
+      "test_name": "Configuration",
+      "success": true,
+      "message": "config.yaml is properly configured",
+      "duration": 6.628036499023438e-05,
+      "timestamp": "2025-09-10T18:11:26.575768"
+    }
+  ]
+}

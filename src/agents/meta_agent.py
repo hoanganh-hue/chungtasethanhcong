@@ -38,7 +38,7 @@ class MetaAgent(UnifiedAgent):
         config: UnifiedConfig,
         tools: Optional[List[BaseTool]] = None,
         memory: Optional[UnifiedMemory] = None,
-        state: Optional[AgentState]] = None,
+        state: Optional[AgentState] = None,
         template_path: Optional[str] = None,
         generation_timeout: int = 300,
         max_generated_agents: int = 100

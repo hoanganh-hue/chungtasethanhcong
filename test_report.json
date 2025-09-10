@@ -1,0 +1,75 @@
+{
+  "test_summary": {
+    "total_tests": 9,
+    "passed_tests": 1,
+    "failed_tests": 8,
+    "success_rate": 11.11111111111111,
+    "total_time": 0.2934408187866211,
+    "timestamp": "2025-09-10T18:08:35.840381"
+  },
+  "test_results": [
+    {
+      "test_name": "Environment Setup",
+      "success": true,
+      "message": "Python 3.13.3",
+      "duration": 0.22111749649047852,
+      "timestamp": "2025-09-10T18:08:35.768092"
+    },
+    {
+      "test_name": "Gemini Integration",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.06370115280151367,
+      "timestamp": "2025-09-10T18:08:35.831831"
+    },
+    {
+      "test_name": "Unified Agent",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.0005862712860107422,
+      "timestamp": "2025-09-10T18:08:35.832456"
+    },
+    {
+      "test_name": "Agent Factory",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.002328634262084961,
+      "timestamp": "2025-09-10T18:08:35.834822"
+    },
+    {
+      "test_name": "API Server",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.0005340576171875,
+      "timestamp": "2025-09-10T18:08:35.835398"
+    },
+    {
+      "test_name": "Gemini Tools",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.002959728240966797,
+      "timestamp": "2025-09-10T18:08:35.838392"
+    },
+    {
+      "test_name": "CCCD Workflow",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.0006277561187744141,
+      "timestamp": "2025-09-10T18:08:35.839070"
+    },
+    {
+      "test_name": "Performance",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.0006341934204101562,
+      "timestamp": "2025-09-10T18:08:35.839737"
+    },
+    {
+      "test_name": "Vietnamese Support",
+      "success": false,
+      "message": "attempted relative import beyond top-level package",
+      "duration": 0.0005891323089599609,
+      "timestamp": "2025-09-10T18:08:35.840356"
+    }
+  ]
+}

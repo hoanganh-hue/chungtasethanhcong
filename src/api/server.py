@@ -16,6 +16,8 @@ from contextlib import asynccontextmanager
 from typing import Dict, Any
 
 from .routes import router
+from .unified_gemini_api import router as gemini_router
+from .simple_endpoints import router as simple_router
 from .models import ErrorResponse
 from ..utils.logging_config import setup_logging
 from ..utils.environment_manager import EnvironmentManager
@@ -143,6 +145,12 @@ def create_app(
     
     # Include API routes
     app.include_router(router, prefix="/api/v1", tags=["API"])
+    
+    # Include Gemini API routes
+    app.include_router(gemini_router, prefix="/api/v1", tags=["Gemini AI"])
+    
+    # Include Simple endpoints
+    app.include_router(simple_router, tags=["System"])
     
     # Add root endpoint
     @app.get("/")

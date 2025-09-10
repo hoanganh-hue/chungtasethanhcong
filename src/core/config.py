@@ -278,7 +278,8 @@ class UnifiedConfig(BaseModel):
     
     def is_tool_enabled(self, tool_name: str) -> bool:
         """Check if a tool is enabled."""
-        return tool_name in self.tools and self.get_tool_config(tool_name)?.enabled != False
+        tool_config = self.get_tool_config(tool_name)
+        return tool_name in self.tools and (tool_config is None or tool_config.enabled != False)
     
     def validate_tool_dependencies(self) -> List[str]:
         """Validate tool dependencies and return missing tools."""

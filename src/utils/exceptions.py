@@ -416,3 +416,69 @@ class AuthorizationError(UnifiedFrameworkError):
         result["resource"] = self.resource
         result["action"] = self.action
         return result
+
+
+class OrchestrationError(UnifiedFrameworkError):
+    """Exception raised for orchestration-related errors."""
+    
+    def __init__(
+        self,
+        message: str,
+        workflow_id: Optional[str] = None,
+        task_id: Optional[str] = None,
+        error_code: Optional[str] = None,
+        details: Optional[Dict[str, Any]] = None
+    ):
+        """
+        Initialize orchestration error.
+        
+        Args:
+            message: Error message
+            workflow_id: ID of the workflow that caused the error
+            task_id: ID of the task that caused the error
+            error_code: Optional error code
+            details: Optional additional details
+        """
+        super().__init__(message, error_code, details)
+        self.workflow_id = workflow_id
+        self.task_id = task_id
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert error to dictionary."""
+        result = super().to_dict()
+        result["workflow_id"] = self.workflow_id
+        result["task_id"] = self.task_id
+        return result
+
+
+class MetaAgentError(UnifiedFrameworkError):
+    """Exception raised for meta agent-related errors."""
+    
+    def __init__(
+        self,
+        message: str,
+        agent_name: Optional[str] = None,
+        template_name: Optional[str] = None,
+        error_code: Optional[str] = None,
+        details: Optional[Dict[str, Any]] = None
+    ):
+        """
+        Initialize meta agent error.
+        
+        Args:
+            message: Error message
+            agent_name: Name of the agent that caused the error
+            template_name: Name of the template that caused the error
+            error_code: Optional error code
+            details: Optional additional details
+        """
+        super().__init__(message, error_code, details)
+        self.agent_name = agent_name
+        self.template_name = template_name
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert error to dictionary."""
+        result = super().to_dict()
+        result["agent_name"] = self.agent_name
+        result["template_name"] = self.template_name
+        return result

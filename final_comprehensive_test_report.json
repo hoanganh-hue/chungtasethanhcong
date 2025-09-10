@@ -1,0 +1,54 @@
+{
+  "test_summary": {
+    "total_tests": 6,
+    "passed_tests": 6,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "total_time": 22.780646562576294,
+    "timestamp": "2025-09-10T18:46:29.685514"
+  },
+  "test_results": [
+    {
+      "test_name": "Server Availability",
+      "success": true,
+      "message": "Server running: 1.0.0",
+      "duration": 0.047593116760253906,
+      "timestamp": "2025-09-10T18:46:06.952490"
+    },
+    {
+      "test_name": "All API Endpoints",
+      "success": true,
+      "message": "Success rate: 100.0% (8/8)",
+      "duration": 0.013649702072143555,
+      "timestamp": "2025-09-10T18:46:06.966238"
+    },
+    {
+      "test_name": "Gemini Integration Comprehensive",
+      "success": true,
+      "message": "Success rate: 100.0% (5/5)",
+      "duration": 9.36836576461792,
+      "timestamp": "2025-09-10T18:46:16.334651"
+    },
+    {
+      "test_name": "Vietnamese Language Comprehensive",
+      "success": true,
+      "message": "Success rate: 100.0% (8/8)",
+      "duration": 12.4459547996521,
+      "timestamp": "2025-09-10T18:46:28.780664"
+    },
+    {
+      "test_name": "Performance Final",
+      "success": true,
+      "message": "Avg: 0.67s, Success: 6/6",
+      "duration": 0.9043500423431396,
+      "timestamp": "2025-09-10T18:46:29.685083"
+    },
+    {
+      "test_name": "File Structure Complete",
+      "success": true,
+      "message": "All 14 files and 12 directories present",
+      "duration": 0.0004029273986816406,
+      "timestamp": "2025-09-10T18:46:29.685508"
+    }
+  ]
+}

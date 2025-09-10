@@ -8,3 +8,8 @@ if sys.version_info < (3, 11) or sys.version_info > (3, 13):
             ver=".".join(map(str, sys.version_info))
         )
     )
+
+# OpenManus Integration placeholder
+class OpenManusIntegration:
+    """Placeholder for OpenManus integration."""
+    pass
