@@ -1,0 +1,6011 @@
+{
+  "timestamp": "2025-10-18T08:08:34.208324",
+  "analysis": {
+    "python_files": {
+      "count": 253,
+      "total_lines": 47541,
+      "code_lines": 38091,
+      "comment_lines": 2013,
+      "files": [
+        {
+          "path": "src/__init__.py",
+          "size": 2012,
+          "total_lines": 86,
+          "code_lines": 56,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 17,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/agents/browser_agent.py",
+          "size": 18454,
+          "total_lines": 491,
+          "code_lines": 372,
+          "comment_lines": 28,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 12,
+            "class_names": [
+              "BrowserAgent"
+            ],
+            "function_names": [
+              "get_agent_info"
+            ]
+          }
+        },
+        {
+          "path": "src/agents/dynamic_agent.py",
+          "size": 17975,
+          "total_lines": 435,
+          "code_lines": 361,
+          "comment_lines": 13,
+          "analysis": {
+            "classes": 6,
+            "functions": 10,
+            "imports": 10,
+            "class_names": [
+              "AgentType",
+              "AgentCapability",
+              "AgentConfiguration",
+              "AgentTemplate",
+              "DynamicAgent",
+              "DynamicAgentFactory"
+            ],
+            "function_names": [
+              "create_agent_from_template",
+              "create_custom_agent",
+              "get_active_agent",
+              "list_all_agents",
+              "register_agent_class",
+              "create_agent_from_template",
+              "create_custom_agent",
+              "get_agent",
+              "list_active_agents",
+              "get_factory_stats"
+            ]
+          }
+        },
+        {
+          "path": "src/agents/__init__.py",
+          "size": 484,
+          "total_lines": 20,
+          "code_lines": 17,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/agents/meta_agent.py",
+          "size": 28921,
+          "total_lines": 694,
+          "code_lines": 514,
+          "comment_lines": 50,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 13,
+            "class_names": [
+              "MetaAgent"
+            ],
+            "function_names": [
+              "get_agent_info"
+            ]
+          }
+        },
+        {
+          "path": "src/agents/gemini_agent_factory.py",
+          "size": 12885,
+          "total_lines": 341,
+          "code_lines": 289,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 13,
+            "class_names": [
+              "GeminiAgentFactory",
+              "GeminiAgentManager"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/agents/simple_agent.py",
+          "size": 16073,
+          "total_lines": 421,
+          "code_lines": 316,
+          "comment_lines": 21,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 10,
+            "class_names": [
+              "SimpleAgent"
+            ],
+            "function_names": [
+              "get_agent_info"
+            ]
+          }
+        },
+        {
+          "path": "src/agents/orchestra_agent.py",
+          "size": 25273,
+          "total_lines": 618,
+          "code_lines": 459,
+          "comment_lines": 39,
+          "analysis": {
+            "classes": 3,
+            "functions": 1,
+            "imports": 15,
+            "class_names": [
+              "WorkflowStatus",
+              "TaskDependency",
+              "OrchestraAgent"
+            ],
+            "function_names": [
+              "get_agent_info"
+            ]
+          }
+        },
+        {
+          "path": "src/utils/logger.py",
+          "size": 11976,
+          "total_lines": 427,
+          "code_lines": 337,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 3,
+            "functions": 13,
+            "imports": 10,
+            "class_names": [
+              "ColoredFormatter",
+              "FrameworkLogger",
+              "LogContext"
+            ],
+            "function_names": [
+              "get_logger",
+              "setup_logging",
+              "set_log_level",
+              "add_file_handler",
+              "log_function_call",
+              "log_performance",
+              "log_error_with_context",
+              "create_logger_config",
+              "debug",
+              "info"
+            ]
+          }
+        },
+        {
+          "path": "src/utils/__init__.py",
+          "size": 563,
+          "total_lines": 29,
+          "code_lines": 26,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/utils/exceptions.py",
+          "size": 14778,
+          "total_lines": 484,
+          "code_lines": 406,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 15,
+            "functions": 15,
+            "imports": 1,
+            "class_names": [
+              "UnifiedFrameworkError",
+              "AgentError",
+              "ToolError",
+              "ConfigError",
+              "EnvironmentError",
+              "MemoryError",
+              "StateError",
+              "ValidationError",
+              "TimeoutError",
+              "ResourceError"
+            ],
+            "function_names": [
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict"
+            ]
+          }
+        },
+        {
+          "path": "src/api/models.py",
+          "size": 6626,
+          "total_lines": 149,
+          "code_lines": 117,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 15,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "AgentType",
+              "ToolCategory",
+              "ParameterType",
+              "ParameterDefinition",
+              "ToolMetadata",
+              "AgentRequest",
+              "AgentResponse",
+              "ToolRequest",
+              "ToolResponse",
+              "WorkflowStep"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/__init__.py",
+          "size": 577,
+          "total_lines": 30,
+          "code_lines": 27,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/server.py",
+          "size": 7523,
+          "total_lines": 262,
+          "code_lines": 174,
+          "comment_lines": 32,
+          "analysis": {
+            "classes": 0,
+            "functions": 3,
+            "imports": 19,
+            "class_names": [],
+            "function_names": [
+              "create_app",
+              "get_app",
+              "custom_openapi"
+            ]
+          }
+        },
+        {
+          "path": "src/api/fixed_endpoints.py",
+          "size": 9862,
+          "total_lines": 295,
+          "code_lines": 242,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 11,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/modules.py",
+          "size": 25685,
+          "total_lines": 796,
+          "code_lines": 600,
+          "comment_lines": 55,
+          "analysis": {
+            "classes": 10,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [
+              "ModuleRequestModel",
+              "ModuleResponseModel",
+              "CCCDGenerationRequest",
+              "CCCDCheckRequest",
+              "TaxLookupRequest",
+              "DataAnalysisRequest",
+              "WebScrapingRequest",
+              "FormAutomationRequest",
+              "ReportGenerationRequest",
+              "ExcelExportRequest"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/gemini_config.py",
+          "size": 13636,
+          "total_lines": 398,
+          "code_lines": 309,
+          "comment_lines": 25,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 11,
+            "class_names": [
+              "GeminiConfigManager"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/routes.py",
+          "size": 15569,
+          "total_lines": 480,
+          "code_lines": 395,
+          "comment_lines": 14,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 16,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/gemini_chat.py",
+          "size": 14471,
+          "total_lines": 370,
+          "code_lines": 312,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 9,
+            "class_names": [
+              "GeminiConnectionManager"
+            ],
+            "function_names": [
+              "get_user_agent"
+            ]
+          }
+        },
+        {
+          "path": "src/api/docs_generator.py",
+          "size": 40007,
+          "total_lines": 1206,
+          "code_lines": 1060,
+          "comment_lines": 43,
+          "analysis": {
+            "classes": 1,
+            "functions": 6,
+            "imports": 6,
+            "class_names": [
+              "APIDocumentationGenerator"
+            ],
+            "function_names": [
+              "generate_api_docs",
+              "get_openapi_spec",
+              "get_markdown_docs",
+              "generate_openapi_spec",
+              "generate_markdown_docs",
+              "save_documentation"
+            ]
+          }
+        },
+        {
+          "path": "src/api/enhanced_endpoints.py",
+          "size": 27499,
+          "total_lines": 714,
+          "code_lines": 633,
+          "comment_lines": 20,
+          "analysis": {
+            "classes": 5,
+            "functions": 0,
+            "imports": 25,
+            "class_names": [
+              "AgentCreateRequest",
+              "AgentMessageRequest",
+              "OrchestrationRequest",
+              "MemoryStoreRequest",
+              "ToolRequest"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/advanced_endpoints.py",
+          "size": 15551,
+          "total_lines": 438,
+          "code_lines": 349,
+          "comment_lines": 25,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 16,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/telegram_webhook.py",
+          "size": 2120,
+          "total_lines": 66,
+          "code_lines": 46,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/api/unified_gemini_api.py",
+          "size": 15866,
+          "total_lines": 451,
+          "code_lines": 367,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 10,
+            "class_names": [
+              "UnifiedGeminiConnectionManager"
+            ],
+            "function_names": [
+              "get_user_agent"
+            ]
+          }
+        },
+        {
+          "path": "src/api/simple_endpoints.py",
+          "size": 6493,
+          "total_lines": 199,
+          "code_lines": 167,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/core/models.py",
+          "size": 4388,
+          "total_lines": 106,
+          "code_lines": 79,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 5,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [
+              "User",
+              "Agent",
+              "Workflow",
+              "Execution",
+              "Log"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/core/__init__.py",
+          "size": 479,
+          "total_lines": 21,
+          "code_lines": 18,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/core/state.py",
+          "size": 9253,
+          "total_lines": 274,
+          "code_lines": 218,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 3,
+            "functions": 17,
+            "imports": 5,
+            "class_names": [
+              "AgentState",
+              "StateTransition",
+              "StateManager"
+            ],
+            "function_names": [
+              "can_transition_to",
+              "transition_to",
+              "force_transition_to",
+              "get_state_info",
+              "get_transition_history",
+              "reset",
+              "is_running",
+              "is_ready",
+              "is_error",
+              "is_completed"
+            ]
+          }
+        },
+        {
+          "path": "src/core/orchestration.py",
+          "size": 15534,
+          "total_lines": 409,
+          "code_lines": 326,
+          "comment_lines": 13,
+          "analysis": {
+            "classes": 5,
+            "functions": 5,
+            "imports": 8,
+            "class_names": [
+              "OrchestrationMode",
+              "AgentStatus",
+              "AgentTask",
+              "OrchestrationPlan",
+              "AgentOrchestrator"
+            ],
+            "function_names": [
+              "register_agent",
+              "unregister_agent",
+              "add_event_handler",
+              "get_agent_status",
+              "get_orchestration_stats"
+            ]
+          }
+        },
+        {
+          "path": "src/core/unified_agent.py",
+          "size": 10659,
+          "total_lines": 318,
+          "code_lines": 231,
+          "comment_lines": 19,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 12,
+            "class_names": [
+              "UnifiedAgent"
+            ],
+            "function_names": [
+              "get_state",
+              "get_stats"
+            ]
+          }
+        },
+        {
+          "path": "src/core/state_manager.py",
+          "size": 14832,
+          "total_lines": 368,
+          "code_lines": 295,
+          "comment_lines": 14,
+          "analysis": {
+            "classes": 5,
+            "functions": 17,
+            "imports": 11,
+            "class_names": [
+              "StateType",
+              "StateStatus",
+              "StateSnapshot",
+              "StateTransition",
+              "StateManager"
+            ],
+            "function_names": [
+              "create_agent_state",
+              "get_agent_state",
+              "update_agent_state",
+              "set_agent_status",
+              "create_workflow_state",
+              "get_workflow_state",
+              "update_workflow_state",
+              "create_state",
+              "get_state",
+              "update_state"
+            ]
+          }
+        },
+        {
+          "path": "src/core/config.py",
+          "size": 13490,
+          "total_lines": 325,
+          "code_lines": 237,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 9,
+            "functions": 11,
+            "imports": 10,
+            "class_names": [
+              "ModelConfig",
+              "ToolConfig",
+              "EnvironmentConfig",
+              "TracingConfig",
+              "BenchmarkConfig",
+              "SecurityConfig",
+              "APIConfig",
+              "UnifiedConfig",
+              "Config"
+            ],
+            "function_names": [
+              "validate_temperature",
+              "validate_top_p",
+              "validate_config",
+              "load_from_file",
+              "save_to_file",
+              "merge",
+              "get_tool_config",
+              "is_tool_enabled",
+              "validate_tool_dependencies",
+              "get_environment_variables"
+            ]
+          }
+        },
+        {
+          "path": "src/core/advanced_config.py",
+          "size": 14801,
+          "total_lines": 429,
+          "code_lines": 323,
+          "comment_lines": 34,
+          "analysis": {
+            "classes": 12,
+            "functions": 6,
+            "imports": 8,
+            "class_names": [
+              "Environment",
+              "LogLevel",
+              "DatabaseConfig",
+              "RedisConfig",
+              "SecurityConfig",
+              "CORSConfig",
+              "GeminiConfig",
+              "MonitoringConfig",
+              "CacheConfig",
+              "RateLimitConfig"
+            ],
+            "function_names": [
+              "get_config",
+              "get_environment_config",
+              "get_config",
+              "save_config",
+              "validate_config",
+              "get_environment_config"
+            ]
+          }
+        },
+        {
+          "path": "src/core/environment.py",
+          "size": 17937,
+          "total_lines": 496,
+          "code_lines": 372,
+          "comment_lines": 19,
+          "analysis": {
+            "classes": 8,
+            "functions": 6,
+            "imports": 13,
+            "class_names": [
+              "EnvironmentType",
+              "EnvironmentStatus",
+              "ResourceLimits",
+              "EnvironmentConfig",
+              "BaseEnvironment",
+              "LocalEnvironment",
+              "DockerEnvironment",
+              "EnvironmentManager"
+            ],
+            "function_names": [
+              "get_info",
+              "create_environment",
+              "get_environment",
+              "list_environments",
+              "remove_environment",
+              "get_manager_info"
+            ]
+          }
+        },
+        {
+          "path": "src/core/memory.py",
+          "size": 19777,
+          "total_lines": 500,
+          "code_lines": 394,
+          "comment_lines": 26,
+          "analysis": {
+            "classes": 7,
+            "functions": 18,
+            "imports": 13,
+            "class_names": [
+              "MemoryType",
+              "MemoryPriority",
+              "MemoryEntry",
+              "MemoryQuery",
+              "UnifiedMemory",
+              "AgentMemory",
+              "MemoryManager"
+            ],
+            "function_names": [
+              "get_agent_memory",
+              "store_agent_memory",
+              "retrieve_agent_memories",
+              "search_agent_memories",
+              "store_memory",
+              "retrieve_memories",
+              "search_memories",
+              "get_memory_statistics",
+              "store_memory",
+              "retrieve_memories"
+            ]
+          }
+        },
+        {
+          "path": "src/core/tool_registry.py",
+          "size": 18167,
+          "total_lines": 517,
+          "code_lines": 386,
+          "comment_lines": 22,
+          "analysis": {
+            "classes": 8,
+            "functions": 16,
+            "imports": 9,
+            "class_names": [
+              "ToolCategory",
+              "ToolStatus",
+              "ToolMetadata",
+              "ToolParameter",
+              "ToolDefinition",
+              "BaseTool",
+              "ToolRegistry",
+              "FunctionTool"
+            ],
+            "function_names": [
+              "to_dict",
+              "validate",
+              "to_dict",
+              "validate_parameters",
+              "get_info",
+              "register_tool",
+              "register_function",
+              "get_tool",
+              "list_tools",
+              "get_tool_info"
+            ]
+          }
+        },
+        {
+          "path": "src/core/database.py",
+          "size": 1750,
+          "total_lines": 66,
+          "code_lines": 51,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "Base"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/core/communication.py",
+          "size": 13070,
+          "total_lines": 328,
+          "code_lines": 267,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 6,
+            "functions": 11,
+            "imports": 9,
+            "class_names": [
+              "MessageType",
+              "MessagePriority",
+              "AgentMessage",
+              "CommunicationChannel",
+              "MessageHandler",
+              "AgentCommunicationHub"
+            ],
+            "function_names": [
+              "register_agent_for_communication",
+              "create_agent_channel",
+              "register_agent",
+              "unregister_agent",
+              "add_message_handler",
+              "create_channel",
+              "join_channel",
+              "leave_channel",
+              "get_agent_messages",
+              "get_channel_messages"
+            ]
+          }
+        },
+        {
+          "path": "src/core/optimization.py",
+          "size": 13873,
+          "total_lines": 421,
+          "code_lines": 300,
+          "comment_lines": 25,
+          "analysis": {
+            "classes": 6,
+            "functions": 13,
+            "imports": 11,
+            "class_names": [
+              "PerformanceMetrics",
+              "PerformanceOptimizer",
+              "AsyncOptimizer",
+              "MemoryOptimizer",
+              "CacheOptimizer",
+              "ResourceManager"
+            ],
+            "function_names": [
+              "performance_monitor",
+              "cached_async",
+              "get_system_metrics",
+              "register_object",
+              "get_memory_stats",
+              "get",
+              "set",
+              "delete",
+              "clear_expired",
+              "decorator"
+            ]
+          }
+        },
+        {
+          "path": "src/security/__init__.py",
+          "size": 732,
+          "total_lines": 26,
+          "code_lines": 24,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/security/authentication.py",
+          "size": 11912,
+          "total_lines": 360,
+          "code_lines": 274,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 6,
+            "functions": 8,
+            "imports": 9,
+            "class_names": [
+              "UserRole",
+              "User",
+              "AuthToken",
+              "JWTManager",
+              "PasswordManager",
+              "AuthenticationManager"
+            ],
+            "function_names": [
+              "generate_access_token",
+              "generate_refresh_token",
+              "verify_token",
+              "refresh_access_token",
+              "hash_password",
+              "verify_password",
+              "get_active_sessions",
+              "cleanup_expired_sessions"
+            ]
+          }
+        },
+        {
+          "path": "src/security/rate_limiting.py",
+          "size": 12483,
+          "total_lines": 334,
+          "code_lines": 246,
+          "comment_lines": 21,
+          "analysis": {
+            "classes": 5,
+            "functions": 15,
+            "imports": 8,
+            "class_names": [
+              "RateLimit",
+              "RateLimitResult",
+              "RateLimiter",
+              "IPWhitelist",
+              "AdvancedRateLimiter"
+            ],
+            "function_names": [
+              "add_rate_limit",
+              "is_allowed",
+              "block_ip",
+              "unblock_ip",
+              "add_ip",
+              "add_range",
+              "add_trusted_proxy",
+              "is_whitelisted",
+              "is_trusted_proxy",
+              "get_real_ip"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/__init__.py",
+          "size": 839,
+          "total_lines": 31,
+          "code_lines": 28,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/tools/pdf_tools.py",
+          "size": 17175,
+          "total_lines": 416,
+          "code_lines": 327,
+          "comment_lines": 9,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 14,
+            "class_names": [
+              "PDFProcessor"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/tools/gemini_tools.py",
+          "size": 16597,
+          "total_lines": 457,
+          "code_lines": 361,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 6,
+            "functions": 6,
+            "imports": 12,
+            "class_names": [
+              "GeminiAITool",
+              "GeminiChatTool",
+              "GeminiFunctionCallingTool",
+              "GeminiCodeGenerationTool",
+              "GeminiDataAnalysisTool",
+              "GeminiTextProcessingTool"
+            ],
+            "function_names": [
+              "create_gemini_chat_tool",
+              "create_gemini_function_calling_tool",
+              "create_gemini_code_generation_tool",
+              "create_gemini_data_analysis_tool",
+              "create_gemini_text_processing_tool",
+              "register_function"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/email_tools.py",
+          "size": 21721,
+          "total_lines": 533,
+          "code_lines": 420,
+          "comment_lines": 33,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 16,
+            "class_names": [
+              "EmailSender",
+              "EmailReceiver",
+              "EmailProcessor"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/tools/file_tools.py",
+          "size": 33166,
+          "total_lines": 874,
+          "code_lines": 793,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 9,
+            "class_names": [
+              "FileReaderTool",
+              "FileWriterTool",
+              "PDFProcessorTool",
+              "ExcelProcessorTool",
+              "ImageProcessorTool",
+              "FileTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/web_tools.py",
+          "size": 25011,
+          "total_lines": 689,
+          "code_lines": 621,
+          "comment_lines": 9,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "PlaywrightBrowserTool",
+              "WebScrapingTool",
+              "FormAutomationTool",
+              "ScreenshotCaptureTool",
+              "ElementInteractionTool",
+              "WebTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/automation_tools.py",
+          "size": 19510,
+          "total_lines": 513,
+          "code_lines": 450,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 4,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "WorkflowAutomationTool",
+              "TaskSchedulerTool",
+              "ProcessAutomationTool",
+              "AutomationTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/data_tools.py",
+          "size": 29724,
+          "total_lines": 762,
+          "code_lines": 665,
+          "comment_lines": 20,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 9,
+            "class_names": [
+              "DataCleaningTool",
+              "DataTransformationTool",
+              "DataValidationTool",
+              "DataMergeTool",
+              "DataAggregationTool",
+              "DataTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/search_tools.py",
+          "size": 23835,
+          "total_lines": 642,
+          "code_lines": 578,
+          "comment_lines": 10,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "WebSearchTool",
+              "GoogleSearchTool",
+              "BingSearchTool",
+              "DuckDuckGoSearchTool",
+              "AcademicSearchTool",
+              "SearchTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/calendar_tools.py",
+          "size": 18086,
+          "total_lines": 441,
+          "code_lines": 347,
+          "comment_lines": 20,
+          "analysis": {
+            "classes": 5,
+            "functions": 19,
+            "imports": 10,
+            "class_names": [
+              "EventStatus",
+              "EventPriority",
+              "CalendarEvent",
+              "CalendarReminder",
+              "CalendarManager"
+            ],
+            "function_names": [
+              "create_calendar_event",
+              "get_events_for_today",
+              "get_upcoming_events",
+              "add_event_reminder",
+              "export_calendar_to_ical",
+              "import_calendar_from_ical",
+              "create_calendar",
+              "create_event",
+              "update_event",
+              "delete_event"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/system_tools.py",
+          "size": 22920,
+          "total_lines": 583,
+          "code_lines": 528,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 4,
+            "functions": 3,
+            "imports": 9,
+            "class_names": [
+              "SystemMonitorTool",
+              "ResourceManagerTool",
+              "ProcessManagerTool",
+              "SystemTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/image_tools.py",
+          "size": 19995,
+          "total_lines": 469,
+          "code_lines": 370,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [
+              "ImageProcessor"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/tools/base_tool.py",
+          "size": 18405,
+          "total_lines": 522,
+          "code_lines": 400,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 6,
+            "functions": 10,
+            "imports": 10,
+            "class_names": [
+              "ToolCategory",
+              "ToolMetadata",
+              "ToolParameter",
+              "ToolDefinition",
+              "BaseTool",
+              "ToolRegistry"
+            ],
+            "function_names": [
+              "get_stats",
+              "get_info",
+              "register_tool",
+              "unregister_tool",
+              "get_tool",
+              "get_tools_by_category",
+              "get_all_tools",
+              "search_tools",
+              "get_tool_info",
+              "get_registry_stats"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/communication_tools.py",
+          "size": 25068,
+          "total_lines": 698,
+          "code_lines": 624,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "EmailTool",
+              "SlackTool",
+              "DiscordTool",
+              "WebhookTool",
+              "NotificationTool",
+              "CommunicationTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/tools/analysis_tools.py",
+          "size": 31305,
+          "total_lines": 838,
+          "code_lines": 757,
+          "comment_lines": 14,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 8,
+            "class_names": [
+              "DataAnalysisTool",
+              "CSVAnalysisTool",
+              "ChartGenerationTool",
+              "StatisticalAnalysisTool",
+              "ReportGenerationTool",
+              "AnalysisTools"
+            ],
+            "function_names": [
+              "get_all_tools",
+              "get_tool_by_name",
+              "get_tools_by_tag"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/telegram_bot.py",
+          "size": 12591,
+          "total_lines": 337,
+          "code_lines": 250,
+          "comment_lines": 13,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 13,
+            "class_names": [
+              "TelegramBotManager"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/__init__.py",
+          "size": 391,
+          "total_lines": 15,
+          "code_lines": 12,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu.py",
+          "size": 15930,
+          "total_lines": 448,
+          "code_lines": 347,
+          "comment_lines": 24,
+          "analysis": {
+            "classes": 5,
+            "functions": 4,
+            "imports": 7,
+            "class_names": [
+              "YoutuIntegration",
+              "SearchTool",
+              "AnalysisTool",
+              "ResearchTool",
+              "FileTool"
+            ],
+            "function_names": [
+              "get_simple_agent",
+              "get_orchestra_agent",
+              "get_meta_agent",
+              "get_integration_info"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus.py",
+          "size": 12064,
+          "total_lines": 336,
+          "code_lines": 258,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 4,
+            "functions": 4,
+            "imports": 7,
+            "class_names": [
+              "OpenManusIntegration",
+              "BrowserTool",
+              "MCPTool",
+              "OrchestrationTool"
+            ],
+            "function_names": [
+              "get_browser_agent",
+              "get_orchestration_agent",
+              "get_mcp_agent",
+              "get_integration_info"
+            ]
+          }
+        },
+        {
+          "path": "src/ai/gemini_agent.py",
+          "size": 18349,
+          "total_lines": 454,
+          "code_lines": 348,
+          "comment_lines": 24,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [
+              "GeminiAIAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/ai/gemini_client.py",
+          "size": 17579,
+          "total_lines": 462,
+          "code_lines": 399,
+          "comment_lines": 13,
+          "analysis": {
+            "classes": 6,
+            "functions": 9,
+            "imports": 8,
+            "class_names": [
+              "GeminiModel",
+              "GeminiConfig",
+              "GeminiMessage",
+              "GeminiFunction",
+              "GeminiClient",
+              "OpenManusFunctions"
+            ],
+            "function_names": [
+              "register_function",
+              "get_cccd_generation_function",
+              "get_cccd_check_function",
+              "get_tax_lookup_function",
+              "get_data_analysis_function",
+              "get_web_scraping_function",
+              "get_form_automation_function",
+              "get_report_generation_function",
+              "get_excel_export_function"
+            ]
+          }
+        },
+        {
+          "path": "src/ai/unified_gemini_agent.py",
+          "size": 19936,
+          "total_lines": 521,
+          "code_lines": 414,
+          "comment_lines": 29,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 15,
+            "class_names": [
+              "GeminiAgentConfig",
+              "UnifiedGeminiAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/llm.py",
+          "size": 29656,
+          "total_lines": 767,
+          "code_lines": 579,
+          "comment_lines": 68,
+          "analysis": {
+            "classes": 2,
+            "functions": 11,
+            "imports": 11,
+            "class_names": [
+              "TokenCounter",
+              "LLM"
+            ],
+            "function_names": [
+              "count_text",
+              "count_image",
+              "count_content",
+              "count_tool_calls",
+              "count_message_tokens",
+              "count_tokens",
+              "count_message_tokens",
+              "update_token_count",
+              "check_token_limit",
+              "get_limit_error_message"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/schema.py",
+          "size": 5689,
+          "total_lines": 188,
+          "code_lines": 147,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 7,
+            "functions": 11,
+            "imports": 3,
+            "class_names": [
+              "Role",
+              "ToolChoice",
+              "AgentState",
+              "Function",
+              "ToolCall",
+              "Message",
+              "Memory"
+            ],
+            "function_names": [
+              "to_dict",
+              "user_message",
+              "system_message",
+              "assistant_message",
+              "tool_message",
+              "from_tool_calls",
+              "add_message",
+              "add_messages",
+              "clear",
+              "get_recent_messages"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/logger.py",
+          "size": 1074,
+          "total_lines": 43,
+          "code_lines": 29,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 4,
+            "class_names": [],
+            "function_names": [
+              "define_log_level"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/__init__.py",
+          "size": 393,
+          "total_lines": 16,
+          "code_lines": 10,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [
+              "OpenManusIntegration"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/bedrock.py",
+          "size": 13106,
+          "total_lines": 335,
+          "code_lines": 293,
+          "comment_lines": 19,
+          "analysis": {
+            "classes": 4,
+            "functions": 2,
+            "imports": 7,
+            "class_names": [
+              "OpenAIResponse",
+              "BedrockClient",
+              "Chat",
+              "ChatCompletions"
+            ],
+            "function_names": [
+              "model_dump",
+              "create"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/config.py",
+          "size": 11818,
+          "total_lines": 341,
+          "code_lines": 275,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 11,
+            "functions": 10,
+            "imports": 6,
+            "class_names": [
+              "LLMSettings",
+              "ProxySettings",
+              "SearchSettings",
+              "RunflowSettings",
+              "BrowserSettings",
+              "SandboxSettings",
+              "MCPServerConfig",
+              "MCPSettings",
+              "AppConfig",
+              "Config"
+            ],
+            "function_names": [
+              "get_project_root",
+              "load_server_config",
+              "llm",
+              "sandbox",
+              "browser_config",
+              "search_config",
+              "mcp_config",
+              "run_flow_config",
+              "workspace_root",
+              "root_path"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/exceptions.py",
+          "size": 332,
+          "total_lines": 14,
+          "code_lines": 8,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [
+              "ToolError",
+              "OpenManusError",
+              "TokenLimitExceeded"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/supabase/telegram_bot.py",
+          "size": 29307,
+          "total_lines": 755,
+          "code_lines": 572,
+          "comment_lines": 45,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 12,
+            "class_names": [
+              "TelegramConfig",
+              "TelegramBot"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/supabase/models.py",
+          "size": 15665,
+          "total_lines": 446,
+          "code_lines": 392,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 15,
+            "functions": 17,
+            "imports": 5,
+            "class_names": [
+              "ModuleType",
+              "RequestStatus",
+              "BaseModel",
+              "ModuleRequest",
+              "CCCDGenerationData",
+              "CCCDCheckData",
+              "TaxLookupData",
+              "DataAnalysisData",
+              "WebScrapingData",
+              "FormAutomationData"
+            ],
+            "function_names": [
+              "to_dict",
+              "from_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict",
+              "to_dict"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/supabase/migrations.py",
+          "size": 17429,
+          "total_lines": 409,
+          "code_lines": 302,
+          "comment_lines": 32,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [
+              "DatabaseMigrations"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/supabase/__init__.py",
+          "size": 391,
+          "total_lines": 16,
+          "code_lines": 14,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/supabase/client.py",
+          "size": 12186,
+          "total_lines": 342,
+          "code_lines": 250,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 3,
+            "functions": 1,
+            "imports": 9,
+            "class_names": [
+              "SupabaseConfig",
+              "SupabaseClient",
+              "SupabaseManager"
+            ],
+            "function_names": [
+              "get_client"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/__init__.py",
+          "size": 435,
+          "total_lines": 13,
+          "code_lines": 7,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/flow/flow_factory.py",
+          "size": 771,
+          "total_lines": 31,
+          "code_lines": 22,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 1,
+            "imports": 5,
+            "class_names": [
+              "FlowType",
+              "FlowFactory"
+            ],
+            "function_names": [
+              "create_flow"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/flow/__init__.py",
+          "size": 0,
+          "total_lines": 1,
+          "code_lines": 0,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/flow/base.py",
+          "size": 1820,
+          "total_lines": 58,
+          "code_lines": 39,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 2,
+            "functions": 3,
+            "imports": 4,
+            "class_names": [
+              "BaseFlow",
+              "Config"
+            ],
+            "function_names": [
+              "primary_agent",
+              "get_agent",
+              "add_agent"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/flow/planning.py",
+          "size": 18261,
+          "total_lines": 443,
+          "code_lines": 318,
+          "comment_lines": 43,
+          "analysis": {
+            "classes": 2,
+            "functions": 4,
+            "imports": 12,
+            "class_names": [
+              "PlanStepStatus",
+              "PlanningFlow"
+            ],
+            "function_names": [
+              "get_all_statuses",
+              "get_active_statuses",
+              "get_status_marks",
+              "get_executor"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/__init__.py",
+          "size": 358,
+          "total_lines": 17,
+          "code_lines": 14,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/base.py",
+          "size": 7026,
+          "total_lines": 197,
+          "code_lines": 149,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 2,
+            "functions": 6,
+            "imports": 8,
+            "class_names": [
+              "BaseAgent",
+              "Config"
+            ],
+            "function_names": [
+              "initialize_agent",
+              "update_memory",
+              "handle_stuck_state",
+              "is_stuck",
+              "messages",
+              "messages"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/react.py",
+          "size": 1012,
+          "total_lines": 39,
+          "code_lines": 28,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "ReActAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/swe.py",
+          "size": 771,
+          "total_lines": 25,
+          "code_lines": 16,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "SWEAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/data_analysis.py",
+          "size": 1376,
+          "total_lines": 38,
+          "code_lines": 28,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [
+              "DataAnalysis"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/toolcall.py",
+          "size": 9840,
+          "total_lines": 251,
+          "code_lines": 191,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [
+              "ToolCallAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/browser.py",
+          "size": 5041,
+          "total_lines": 125,
+          "code_lines": 97,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 1,
+            "imports": 9,
+            "class_names": [
+              "BrowserContextHelper",
+              "BrowserAgent"
+            ],
+            "function_names": [
+              "initialize_helper"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/mcp.py",
+          "size": 7150,
+          "total_lines": 186,
+          "code_lines": 129,
+          "comment_lines": 21,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [
+              "MCPAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/agent/manus.py",
+          "size": 6263,
+          "total_lines": 166,
+          "code_lines": 133,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 13,
+            "class_names": [
+              "Manus"
+            ],
+            "function_names": [
+              "initialize_helper"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/__init__.py",
+          "size": 0,
+          "total_lines": 1,
+          "code_lines": 0,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/swe.py",
+          "size": 1591,
+          "total_lines": 23,
+          "code_lines": 17,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/visualization.py",
+          "size": 668,
+          "total_lines": 11,
+          "code_lines": 7,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/toolcall.py",
+          "size": 162,
+          "total_lines": 6,
+          "code_lines": 4,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/planning.py",
+          "size": 1199,
+          "total_lines": 28,
+          "code_lines": 23,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/browser.py",
+          "size": 5454,
+          "total_lines": 95,
+          "code_lines": 76,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/mcp.py",
+          "size": 2168,
+          "total_lines": 44,
+          "code_lines": 34,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/prompt/manus.py",
+          "size": 821,
+          "total_lines": 11,
+          "code_lines": 8,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/__init__.py",
+          "size": 685,
+          "total_lines": 31,
+          "code_lines": 27,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/client.py",
+          "size": 5647,
+          "total_lines": 202,
+          "code_lines": 151,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 3,
+            "functions": 1,
+            "imports": 4,
+            "class_names": [
+              "SandboxFileOperations",
+              "BaseSandboxClient",
+              "LocalSandboxClient"
+            ],
+            "function_names": [
+              "create_sandbox_client"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/mcp/__init__.py",
+          "size": 0,
+          "total_lines": 1,
+          "code_lines": 0,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/mcp/server.py",
+          "size": 6682,
+          "total_lines": 181,
+          "code_lines": 130,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 1,
+            "functions": 4,
+            "imports": 15,
+            "class_names": [
+              "MCPServer"
+            ],
+            "function_names": [
+              "parse_args",
+              "register_tool",
+              "register_all_tools",
+              "run"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/__init__.py",
+          "size": 675,
+          "total_lines": 25,
+          "code_lines": 22,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/str_replace_editor.py",
+          "size": 17148,
+          "total_lines": 433,
+          "code_lines": 341,
+          "comment_lines": 35,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 8,
+            "class_names": [
+              "StrReplaceEditor"
+            ],
+            "function_names": [
+              "maybe_truncate"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/base.py",
+          "size": 2457,
+          "total_lines": 81,
+          "code_lines": 59,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 6,
+            "functions": 3,
+            "imports": 3,
+            "class_names": [
+              "BaseTool",
+              "ToolResult",
+              "CLIResult",
+              "ToolFailure",
+              "Config",
+              "Config"
+            ],
+            "function_names": [
+              "to_param",
+              "replace",
+              "combine_fields"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/terminate.py",
+          "size": 833,
+          "total_lines": 26,
+          "code_lines": 20,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [
+              "Terminate"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/ask_human.py",
+          "size": 572,
+          "total_lines": 22,
+          "code_lines": 17,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [
+              "AskHuman"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/create_chat_completion.py",
+          "size": 5621,
+          "total_lines": 170,
+          "code_lines": 135,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "CreateChatCompletion"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/file_operators.py",
+          "size": 5618,
+          "total_lines": 159,
+          "code_lines": 129,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "FileOperator",
+              "LocalFileOperator",
+              "SandboxFileOperator"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/planning.py",
+          "size": 13623,
+          "total_lines": 364,
+          "code_lines": 296,
+          "comment_lines": 10,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "PlanningTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/python_execute.py",
+          "size": 2497,
+          "total_lines": 76,
+          "code_lines": 64,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "PythonExecute"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/tool_collection.py",
+          "size": 2241,
+          "total_lines": 72,
+          "code_lines": 56,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 4,
+            "imports": 4,
+            "class_names": [
+              "ToolCollection",
+              "Config"
+            ],
+            "function_names": [
+              "to_params",
+              "get_tool",
+              "add_tool",
+              "add_tools"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/mcp.py",
+          "size": 7542,
+          "total_lines": 195,
+          "code_lines": 143,
+          "comment_lines": 12,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [
+              "MCPClientTool",
+              "MCPClients"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/bash.py",
+          "size": 5754,
+          "total_lines": 159,
+          "code_lines": 120,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 2,
+            "functions": 1,
+            "imports": 5,
+            "class_names": [
+              "_BashSession",
+              "Bash"
+            ],
+            "function_names": [
+              "stop"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/web_search.py",
+          "size": 14837,
+          "total_lines": 419,
+          "code_lines": 331,
+          "comment_lines": 22,
+          "analysis": {
+            "classes": 5,
+            "functions": 1,
+            "imports": 11,
+            "class_names": [
+              "SearchResult",
+              "SearchMetadata",
+              "SearchResponse",
+              "WebContentFetcher",
+              "WebSearch"
+            ],
+            "function_names": [
+              "populate_output"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/browser_use_tool.py",
+          "size": 24691,
+          "total_lines": 568,
+          "code_lines": 483,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 16,
+            "class_names": [
+              "BrowserUseTool"
+            ],
+            "function_names": [
+              "validate_parameters",
+              "create_with_context"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/crawl4ai.py",
+          "size": 10599,
+          "total_lines": 270,
+          "code_lines": 220,
+          "comment_lines": 11,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "Crawl4aiTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/core/sandbox.py",
+          "size": 15839,
+          "total_lines": 463,
+          "code_lines": 348,
+          "comment_lines": 28,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 13,
+            "class_names": [
+              "DockerSandbox"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/core/terminal.py",
+          "size": 10943,
+          "total_lines": 347,
+          "code_lines": 268,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [
+              "DockerSession",
+              "AsyncDockerizedTerminal"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/core/exceptions.py",
+          "size": 471,
+          "total_lines": 18,
+          "code_lines": 10,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [
+              "SandboxError",
+              "SandboxTimeoutError",
+              "SandboxResourceError"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/sandbox/core/manager.py",
+          "size": 10581,
+          "total_lines": 314,
+          "code_lines": 242,
+          "comment_lines": 12,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 9,
+            "class_names": [
+              "SandboxManager"
+            ],
+            "function_names": [
+              "start_cleanup_task",
+              "get_stats"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/bing_search.py",
+          "size": 5313,
+          "total_lines": 145,
+          "code_lines": 115,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 5,
+            "class_names": [
+              "BingSearchEngine"
+            ],
+            "function_names": [
+              "perform_search"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/__init__.py",
+          "size": 439,
+          "total_lines": 15,
+          "code_lines": 12,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/base.py",
+          "size": 1305,
+          "total_lines": 41,
+          "code_lines": 29,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 1,
+            "imports": 2,
+            "class_names": [
+              "SearchItem",
+              "WebSearchEngine"
+            ],
+            "function_names": [
+              "perform_search"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/google_search.py",
+          "size": 987,
+          "total_lines": 34,
+          "code_lines": 25,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [
+              "GoogleSearchEngine"
+            ],
+            "function_names": [
+              "perform_search"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/duckduckgo_search.py",
+          "size": 1987,
+          "total_lines": 58,
+          "code_lines": 46,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [
+              "DuckDuckGoSearchEngine"
+            ],
+            "function_names": [
+              "perform_search"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/search/baidu_search.py",
+          "size": 1921,
+          "total_lines": 55,
+          "code_lines": 42,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [
+              "BaiduSearchEngine"
+            ],
+            "function_names": [
+              "perform_search"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/__init__.py",
+          "size": 311,
+          "total_lines": 7,
+          "code_lines": 4,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/chart_prepare.py",
+          "size": 1803,
+          "total_lines": 39,
+          "code_lines": 32,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [
+              "VisualizationPrepare"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/python_execute.py",
+          "size": 1800,
+          "total_lines": 37,
+          "code_lines": 31,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [
+              "NormalPythonExecute"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/data_visualization.py",
+          "size": 9555,
+          "total_lines": 264,
+          "code_lines": 249,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 10,
+            "class_names": [
+              "DataVisualization"
+            ],
+            "function_names": [
+              "initialize_llm",
+              "get_file_path",
+              "success_output_template"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/test/chart_demo.py",
+          "size": 4418,
+          "total_lines": 192,
+          "code_lines": 184,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/test/report_demo.py",
+          "size": 718,
+          "total_lines": 28,
+          "code_lines": 18,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/llm_agent.py",
+          "size": 1926,
+          "total_lines": 49,
+          "code_lines": 36,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 5,
+            "class_names": [
+              "LLMAgent"
+            ],
+            "function_names": [
+              "set_instructions",
+              "run_streamed"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/__init__.py",
+          "size": 716,
+          "total_lines": 28,
+          "code_lines": 23,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [],
+            "function_names": [
+              "get_agent"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/base_agent.py",
+          "size": 329,
+          "total_lines": 19,
+          "code_lines": 12,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "BaseAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/simple_agent.py",
+          "size": 10683,
+          "total_lines": 271,
+          "code_lines": 230,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 1,
+            "functions": 4,
+            "imports": 12,
+            "class_names": [
+              "SimpleAgent"
+            ],
+            "function_names": [
+              "run_streamed",
+              "set_instructions",
+              "clear_input_items",
+              "set_run_hooks"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce_agent.py",
+          "size": 3577,
+          "total_lines": 82,
+          "code_lines": 55,
+          "comment_lines": 11,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "WorkforceAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/common.py",
+          "size": 3283,
+          "total_lines": 93,
+          "code_lines": 63,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 2,
+            "functions": 6,
+            "imports": 7,
+            "class_names": [
+              "DataClassWithStreamEvents",
+              "TaskRecorder"
+            ],
+            "function_names": [
+              "to_dict",
+              "add_run_result",
+              "get_run_result",
+              "set_final_output",
+              "set_attr",
+              "get_attr"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra_agent.py",
+          "size": 6265,
+          "total_lines": 143,
+          "code_lines": 115,
+          "comment_lines": 10,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 9,
+            "class_names": [
+              "OrchestraAgent"
+            ],
+            "function_names": [
+              "set_planner",
+              "run_streamed"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/log.py",
+          "size": 2839,
+          "total_lines": 86,
+          "code_lines": 62,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 0,
+            "functions": 4,
+            "imports": 6,
+            "class_names": [],
+            "function_names": [
+              "setup_logging",
+              "get_logger",
+              "oneline_object",
+              "log_error_with_exc"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/env.py",
+          "size": 1075,
+          "total_lines": 34,
+          "code_lines": 27,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 3,
+            "class_names": [
+              "EnvUtils"
+            ],
+            "function_names": [
+              "get_env",
+              "assert_env",
+              "ensure_package"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/__init__.py",
+          "size": 915,
+          "total_lines": 33,
+          "code_lines": 31,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/token.py",
+          "size": 639,
+          "total_lines": 22,
+          "code_lines": 17,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 1,
+            "class_names": [
+              "TokenUtils"
+            ],
+            "function_names": [
+              "truncate_text_by_token",
+              "count_tokens"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/sqlmodel_utils.py",
+          "size": 2120,
+          "total_lines": 67,
+          "code_lines": 51,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 5,
+            "class_names": [
+              "SQLModelUtils"
+            ],
+            "function_names": [
+              "get_engine",
+              "create_session",
+              "check_db_available"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/tool_cache.py",
+          "size": 4633,
+          "total_lines": 119,
+          "code_lines": 98,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 5,
+            "imports": 11,
+            "class_names": [],
+            "function_names": [
+              "create_cached_file",
+              "create_cached_db",
+              "async_file_cache",
+              "decorator_file",
+              "decorator_db"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/path.py",
+          "size": 2632,
+          "total_lines": 83,
+          "code_lines": 68,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 7,
+            "imports": 7,
+            "class_names": [
+              "FileUtils"
+            ],
+            "function_names": [
+              "get_package_path",
+              "is_web_url",
+              "get_file_ext",
+              "download_file",
+              "get_file_md5",
+              "load_yaml",
+              "load_prompts"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/common.py",
+          "size": 1983,
+          "total_lines": 66,
+          "code_lines": 50,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 5,
+            "imports": 3,
+            "class_names": [],
+            "function_names": [
+              "get_event_loop",
+              "get_jinja_env",
+              "get_jinja_template",
+              "schema_to_basemodel",
+              "get_python_type"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/print_utils.py",
+          "size": 2757,
+          "total_lines": 90,
+          "code_lines": 75,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 5,
+            "imports": 4,
+            "class_names": [
+              "PrintUtils"
+            ],
+            "function_names": [
+              "print_input",
+              "print_info",
+              "print_bot",
+              "print_tool",
+              "print_error"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/agents_utils.py",
+          "size": 13245,
+          "total_lines": 296,
+          "code_lines": 256,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 3,
+            "functions": 12,
+            "imports": 15,
+            "class_names": [
+              "ChatCompletionConverter",
+              "AgentsUtils",
+              "SimplifiedOpenAIChatCompletionsModel"
+            ],
+            "function_names": [
+              "items_to_messages",
+              "filter_items",
+              "items_to_dict",
+              "generate_group_id",
+              "gen_trace_id",
+              "get_current_trace",
+              "get_agents_model",
+              "get_trajectory_from_agent_result",
+              "print_new_items",
+              "convert_model_settings"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/models/react.py",
+          "size": 5265,
+          "total_lines": 141,
+          "code_lines": 114,
+          "comment_lines": 14,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 8,
+            "class_names": [
+              "ReactModel"
+            ],
+            "function_names": [
+              "get_react_model"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/models/react_converter.py",
+          "size": 9014,
+          "total_lines": 221,
+          "code_lines": 179,
+          "comment_lines": 13,
+          "analysis": {
+            "classes": 2,
+            "functions": 2,
+            "imports": 9,
+            "class_names": [
+              "ConverterPreprocessInput",
+              "ReactConverter"
+            ],
+            "function_names": [
+              "preprocess",
+              "postprocess"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/__init__.py",
+          "size": 782,
+          "total_lines": 23,
+          "code_lines": 20,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/base_env.py",
+          "size": 998,
+          "total_lines": 46,
+          "code_lines": 32,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 3,
+            "imports": 3,
+            "class_names": [
+              "Env",
+              "BaseEnv"
+            ],
+            "function_names": [
+              "get_state",
+              "get_time",
+              "get_state"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/shell_local_env.py",
+          "size": 516,
+          "total_lines": 25,
+          "code_lines": 19,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 1,
+            "class_names": [
+              "ShellLocalEnv"
+            ],
+            "function_names": [
+              "get_state"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/browser_env.py",
+          "size": 2879,
+          "total_lines": 81,
+          "code_lines": 64,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 5,
+            "class_names": [
+              "BrowserEnv"
+            ],
+            "function_names": [
+              "get_state",
+              "create_on_invoke_tool"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/__init__.py",
+          "size": 350,
+          "total_lines": 13,
+          "code_lines": 9,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/common.py",
+          "size": 2025,
+          "total_lines": 63,
+          "code_lines": 23,
+          "comment_lines": 24,
+          "analysis": {
+            "classes": 0,
+            "functions": 7,
+            "imports": 2,
+            "class_names": [],
+            "function_names": [
+              "limit_concurrency",
+              "limit_concurrency_thread",
+              "async_to_sync",
+              "decorator",
+              "decorator",
+              "wrapper",
+              "wrapper"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/utils.py",
+          "size": 1331,
+          "total_lines": 31,
+          "code_lines": 26,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 2,
+            "class_names": [],
+            "function_names": [
+              "parse_eval_config"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/db_tracer.py",
+          "size": 3283,
+          "total_lines": 93,
+          "code_lines": 77,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 6,
+            "imports": 5,
+            "class_names": [
+              "DBTracingProcessor"
+            ],
+            "function_names": [
+              "on_trace_start",
+              "on_trace_end",
+              "on_span_start",
+              "on_span_end",
+              "force_flush",
+              "shutdown"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/__init__.py",
+          "size": 198,
+          "total_lines": 5,
+          "code_lines": 3,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/otel_agents_processor.py",
+          "size": 27116,
+          "total_lines": 694,
+          "code_lines": 597,
+          "comment_lines": 16,
+          "analysis": {
+            "classes": 1,
+            "functions": 6,
+            "imports": 18,
+            "class_names": [
+              "OpenInferenceTracingProcessor"
+            ],
+            "function_names": [
+              "on_trace_start",
+              "on_trace_end",
+              "on_span_start",
+              "on_span_end",
+              "force_flush",
+              "shutdown"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/otel_agents_instrumentor.py",
+          "size": 1993,
+          "total_lines": 57,
+          "code_lines": 38,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 12,
+            "class_names": [
+              "OpenAIAgentsInstrumentor"
+            ],
+            "function_names": [
+              "instrumentation_dependencies"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/phoenix_utils.py",
+          "size": 1818,
+          "total_lines": 45,
+          "code_lines": 36,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 4,
+            "class_names": [
+              "PhoenixUtils"
+            ],
+            "function_names": [
+              "get_spans",
+              "get_project",
+              "get_trace_url_by_id"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/setup.py",
+          "size": 3367,
+          "total_lines": 79,
+          "code_lines": 58,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 0,
+            "functions": 3,
+            "imports": 10,
+            "class_names": [],
+            "function_names": [
+              "setup_otel_tracing",
+              "setup_db_tracing",
+              "setup_tracing"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tracing/toolcall_stat.py",
+          "size": 867,
+          "total_lines": 26,
+          "code_lines": 17,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [
+              "ToolCallStatRunHook"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/__init__.py",
+          "size": 295,
+          "total_lines": 7,
+          "code_lines": 5,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/base_config.py",
+          "size": 738,
+          "total_lines": 31,
+          "code_lines": 19,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 3,
+            "class_names": [
+              "ConfigBaseModel"
+            ],
+            "function_names": [
+              "if_need_secure",
+              "secure_repr"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/model_config.py",
+          "size": 1548,
+          "total_lines": 47,
+          "code_lines": 31,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 4,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "ModelProviderConfig",
+              "ModelSettingsConfig",
+              "ModelParamsConfig",
+              "ModelConfigs"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/agent_config.py",
+          "size": 4095,
+          "total_lines": 106,
+          "code_lines": 82,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 5,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "ProfileConfig",
+              "ToolkitConfig",
+              "ContextManagerConfig",
+              "EnvConfig",
+              "AgentConfig"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/loader.py",
+          "size": 2066,
+          "total_lines": 61,
+          "code_lines": 43,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 4,
+            "imports": 7,
+            "class_names": [
+              "ConfigLoader"
+            ],
+            "function_names": [
+              "load_model_config",
+              "load_toolkit_config",
+              "load_agent_config",
+              "load_eval_config"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/config/eval_config.py",
+          "size": 1306,
+          "total_lines": 48,
+          "code_lines": 33,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "DataConfig",
+              "EvalConfig"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/context/__init__.py",
+          "size": 755,
+          "total_lines": 23,
+          "code_lines": 14,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [],
+            "function_names": [
+              "build_context_manager"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/context/env_context_manager.py",
+          "size": 906,
+          "total_lines": 26,
+          "code_lines": 20,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [
+              "EnvContextManager"
+            ],
+            "function_names": [
+              "preprocess"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/context/base_context_manager.py",
+          "size": 1152,
+          "total_lines": 33,
+          "code_lines": 18,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 2,
+            "functions": 3,
+            "imports": 3,
+            "class_names": [
+              "BaseContextManager",
+              "DummyContextManager"
+            ],
+            "function_names": [
+              "preprocess",
+              "process",
+              "preprocess"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/tione.py",
+          "size": 0,
+          "total_lines": 1,
+          "code_lines": 0,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/__init__.py",
+          "size": 1861,
+          "total_lines": 51,
+          "code_lines": 47,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 19,
+            "class_names": [],
+            "function_names": [
+              "get_toolkits_map"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/audio_toolkit.py",
+          "size": 3057,
+          "total_lines": 76,
+          "code_lines": 61,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 5,
+            "class_names": [
+              "AudioToolkit"
+            ],
+            "function_names": [
+              "handle_path"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/bash_remote_tool.py",
+          "size": 2742,
+          "total_lines": 72,
+          "code_lines": 56,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "BashRemoteToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/python_executor_toolkit.py",
+          "size": 5437,
+          "total_lines": 165,
+          "code_lines": 129,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 13,
+            "class_names": [
+              "PythonExecutorToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/memory_toolkit.py",
+          "size": 4957,
+          "total_lines": 121,
+          "code_lines": 97,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "SimpleMemoryToolkit",
+              "CompactifyMemoryToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/github_toolkit.py",
+          "size": 2428,
+          "total_lines": 62,
+          "code_lines": 53,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "GitHubToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/user_interaction_toolkit.py",
+          "size": 1179,
+          "total_lines": 40,
+          "code_lines": 30,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 5,
+            "class_names": [
+              "UserInteractionToolkit"
+            ],
+            "function_names": [
+              "set_ask_function"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/arxiv_toolkit.py",
+          "size": 4969,
+          "total_lines": 124,
+          "code_lines": 88,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "ArxivToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/codesnip_toolkit.py",
+          "size": 1982,
+          "total_lines": 79,
+          "code_lines": 68,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "CodesnipToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/bash_toolkit.py",
+          "size": 5689,
+          "total_lines": 144,
+          "code_lines": 97,
+          "comment_lines": 23,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "BashToolkit"
+            ],
+            "function_names": [
+              "setup_workspace",
+              "start_persistent_shell",
+              "run_command"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/base.py",
+          "size": 4307,
+          "total_lines": 125,
+          "code_lines": 100,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 2,
+            "functions": 3,
+            "imports": 6,
+            "class_names": [
+              "MCPConverter",
+              "AsyncBaseToolkit"
+            ],
+            "function_names": [
+              "function_tool_to_mcp",
+              "get_tools_map_sync",
+              "get_tools_in_agents_sync"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/video_toolkit.py",
+          "size": 1663,
+          "total_lines": 56,
+          "code_lines": 44,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "VideoToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/thinking_toolkit.py",
+          "size": 592,
+          "total_lines": 19,
+          "code_lines": 14,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [
+              "ThinkingToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/file_edit_toolkit.py",
+          "size": 4746,
+          "total_lines": 127,
+          "code_lines": 101,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [
+              "FileEditToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search_toolkit.py",
+          "size": 4873,
+          "total_lines": 123,
+          "code_lines": 98,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 11,
+            "class_names": [
+              "SearchToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/serper_toolkit.py",
+          "size": 14076,
+          "total_lines": 418,
+          "code_lines": 363,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "SerperToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/wikipedia_toolkit.py",
+          "size": 5305,
+          "total_lines": 136,
+          "code_lines": 110,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [
+              "WikipediaSearchTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/tabular_data_toolkit.py",
+          "size": 8367,
+          "total_lines": 204,
+          "code_lines": 160,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 9,
+            "class_names": [
+              "TabularDataToolkit"
+            ],
+            "function_names": [
+              "get_tabular_columns"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/image_toolkit.py",
+          "size": 3911,
+          "total_lines": 95,
+          "code_lines": 80,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [
+              "ImageToolkit"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/utils.py",
+          "size": 727,
+          "total_lines": 21,
+          "code_lines": 15,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 1,
+            "class_names": [
+              "ContentFilter"
+            ],
+            "function_names": [
+              "filter_results"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/document_toolkit.py",
+          "size": 3581,
+          "total_lines": 85,
+          "code_lines": 68,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [
+              "DocumentToolkit"
+            ],
+            "function_names": [
+              "handle_path"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tool_maker/__init__.py",
+          "size": 53,
+          "total_lines": 4,
+          "code_lines": 2,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tool_maker/base.py",
+          "size": 500,
+          "total_lines": 18,
+          "code_lines": 12,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [],
+            "function_names": [
+              "make_tool"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/ui/webui_chatbot.py",
+          "size": 6396,
+          "total_lines": 160,
+          "code_lines": 121,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 2,
+            "functions": 6,
+            "imports": 12,
+            "class_names": [
+              "WebSocketHandler",
+              "WebUIChatbot"
+            ],
+            "function_names": [
+              "initialize",
+              "check_origin",
+              "open",
+              "on_close",
+              "make_app",
+              "launch"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/ui/dummy_chatbot.py",
+          "size": 8949,
+          "total_lines": 234,
+          "code_lines": 196,
+          "comment_lines": 20,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 8,
+            "class_names": [
+              "DummyChatbot"
+            ],
+            "function_names": [
+              "save_event_list",
+              "launch"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/ui/common.py",
+          "size": 5529,
+          "total_lines": 181,
+          "code_lines": 150,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 9,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "TextDeltaContent",
+              "PlanItem",
+              "WorkerItem",
+              "ReportItem",
+              "OrchestraContent",
+              "ExampleContent",
+              "NewAgentContent",
+              "Event",
+              "UserQuery"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/ui/gradio_chatbot.py",
+          "size": 12661,
+          "total_lines": 259,
+          "code_lines": 232,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [
+              "GradioChatbot"
+            ],
+            "function_names": [
+              "launch"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/meta/__init__.py",
+          "size": 93,
+          "total_lines": 4,
+          "code_lines": 2,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/meta/simple_agent_generator.py",
+          "size": 5828,
+          "total_lines": 146,
+          "code_lines": 125,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [
+              "SimpleAgentGenerator"
+            ],
+            "function_names": [
+              "add_indented_lines"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/patch/runner.py",
+          "size": 3321,
+          "total_lines": 99,
+          "code_lines": 80,
+          "comment_lines": 8,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "UTUAgentRunner"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/db/tool_cache_model.py",
+          "size": 730,
+          "total_lines": 21,
+          "code_lines": 14,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "ToolCacheModel"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/db/__init__.py",
+          "size": 309,
+          "total_lines": 12,
+          "code_lines": 10,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/db/eval_datapoint.py",
+          "size": 3050,
+          "total_lines": 84,
+          "code_lines": 67,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 2,
+            "functions": 1,
+            "imports": 4,
+            "class_names": [
+              "DatasetSample",
+              "EvaluationSample"
+            ],
+            "function_names": [
+              "model_dump"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/db/tracing_model.py",
+          "size": 1487,
+          "total_lines": 39,
+          "code_lines": 25,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "ToolTracingModel",
+              "GenerationTracingModel"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/db/utu_basemodel.py",
+          "size": 808,
+          "total_lines": 29,
+          "code_lines": 22,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 4,
+            "imports": 1,
+            "class_names": [
+              "UTUBaseModel"
+            ],
+            "function_names": [
+              "update",
+              "get",
+              "from_dict",
+              "as_dict"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/__init__.py",
+          "size": 309,
+          "total_lines": 14,
+          "code_lines": 12,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/planner.py",
+          "size": 6360,
+          "total_lines": 138,
+          "code_lines": 112,
+          "comment_lines": 9,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "PlannerAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/assigner.py",
+          "size": 2437,
+          "total_lines": 60,
+          "code_lines": 46,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "AssignerAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/answerer.py",
+          "size": 1721,
+          "total_lines": 43,
+          "code_lines": 33,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "AnswererAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/data.py",
+          "size": 3111,
+          "total_lines": 87,
+          "code_lines": 69,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 9,
+            "imports": 3,
+            "class_names": [
+              "Subtask",
+              "WorkspaceTaskRecorder"
+            ],
+            "function_names": [
+              "formatted_with_result",
+              "executor_agents_info",
+              "executor_agents_names",
+              "formatted_task_plan_list_with_task_results",
+              "formatted_task_plan",
+              "plan_init",
+              "plan_update",
+              "has_uncompleted_tasks",
+              "get_next_task"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/workforce/executor.py",
+          "size": 5347,
+          "total_lines": 123,
+          "code_lines": 96,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 5,
+            "class_names": [
+              "ExecutorAgent"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/__init__.py",
+          "size": 488,
+          "total_lines": 18,
+          "code_lines": 16,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/planner.py",
+          "size": 4703,
+          "total_lines": 109,
+          "code_lines": 90,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 2,
+            "functions": 2,
+            "imports": 6,
+            "class_names": [
+              "OutputParser",
+              "PlannerAgent"
+            ],
+            "function_names": [
+              "parse",
+              "name"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/worker.py",
+          "size": 2165,
+          "total_lines": 69,
+          "code_lines": 53,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 2,
+            "imports": 4,
+            "class_names": [
+              "BaseWorkerAgent",
+              "SimpleWorkerAgent"
+            ],
+            "function_names": [
+              "work_streamed",
+              "work_streamed"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/reporter.py",
+          "size": 1368,
+          "total_lines": 34,
+          "code_lines": 26,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 4,
+            "class_names": [
+              "ReporterAgent"
+            ],
+            "function_names": [
+              "name"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/common.py",
+          "size": 2608,
+          "total_lines": 97,
+          "code_lines": 71,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 7,
+            "functions": 7,
+            "imports": 4,
+            "class_names": [
+              "AgentInfo",
+              "Subtask",
+              "CreatePlanResult",
+              "WorkerResult",
+              "AnalysisResult",
+              "OrchestraTaskRecorder",
+              "OrchestraStreamEvent"
+            ],
+            "function_names": [
+              "trajectory",
+              "trajectory",
+              "set_plan",
+              "add_worker_result",
+              "add_reporter_result",
+              "get_plan_str",
+              "get_trajectory_str"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/openai_utils/types.py",
+          "size": 2541,
+          "total_lines": 67,
+          "code_lines": 53,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [
+              "OpenAICreateBaseParams",
+              "OpenAIChatCompletionParams",
+              "OpenAIResponsesParams"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/openai_utils/__init__.py",
+          "size": 267,
+          "total_lines": 6,
+          "code_lines": 4,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/openai_utils/openai_utils.py",
+          "size": 6548,
+          "total_lines": 148,
+          "code_lines": 128,
+          "comment_lines": 7,
+          "analysis": {
+            "classes": 1,
+            "functions": 7,
+            "imports": 7,
+            "class_names": [
+              "OpenAIUtils"
+            ],
+            "function_names": [
+              "print_message",
+              "print_response",
+              "print_response_stream",
+              "get_response_configs",
+              "get_response_output",
+              "tool_chatcompletion_to_responses",
+              "maybe_basemodel_to_dict"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/utils/openai_utils/simplified_client.py",
+          "size": 5406,
+          "total_lines": 120,
+          "code_lines": 100,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 7,
+            "class_names": [
+              "SimplifiedAsyncOpenAI"
+            ],
+            "function_names": [
+              "process_chat_completion_params",
+              "process_responses_params",
+              "check_known_keys"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/utils/__init__.py",
+          "size": 118,
+          "total_lines": 5,
+          "code_lines": 3,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/utils/mcp_client.py",
+          "size": 4070,
+          "total_lines": 104,
+          "code_lines": 70,
+          "comment_lines": 19,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 8,
+            "class_names": [
+              "MCPClient"
+            ],
+            "function_names": [
+              "get_url_type"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/utils/docker_manager.py",
+          "size": 17035,
+          "total_lines": 409,
+          "code_lines": 311,
+          "comment_lines": 23,
+          "analysis": {
+            "classes": 3,
+            "functions": 3,
+            "imports": 10,
+            "class_names": [
+              "ContainerStatus",
+              "ContainerInfo",
+              "DockerManager"
+            ],
+            "function_names": [
+              "get_status",
+              "get_all_status",
+              "cleanup"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/env/utils/port_manager.py",
+          "size": 1345,
+          "total_lines": 39,
+          "code_lines": 31,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 5,
+            "imports": 1,
+            "class_names": [
+              "PortManager"
+            ],
+            "function_names": [
+              "is_port_available",
+              "allocate_port",
+              "release_port",
+              "reserve_port",
+              "get_host_ip"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/benchmarks/__init__.py",
+          "size": 59,
+          "total_lines": 2,
+          "code_lines": 1,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/benchmarks/base_benchmark.py",
+          "size": 7366,
+          "total_lines": 187,
+          "code_lines": 150,
+          "comment_lines": 6,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 9,
+            "class_names": [
+              "BaseBenchmark"
+            ],
+            "function_names": [
+              "preprocess",
+              "preprocess_one"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/browse_comp.py",
+          "size": 1336,
+          "total_lines": 41,
+          "code_lines": 30,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 2,
+            "functions": 2,
+            "imports": 4,
+            "class_names": [
+              "BrowseCompProcesser",
+              "BrowseCompZHProcesser"
+            ],
+            "function_names": [
+              "calculate_metrics",
+              "calculate_metrics"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/__init__.py",
+          "size": 2473,
+          "total_lines": 71,
+          "code_lines": 53,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 8,
+            "class_names": [
+              "ProcesserFactory"
+            ],
+            "function_names": [
+              "get",
+              "get_all",
+              "register"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/web_walker.py",
+          "size": 1650,
+          "total_lines": 45,
+          "code_lines": 32,
+          "comment_lines": 4,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 4,
+            "class_names": [
+              "WebWalkerQAProcesser"
+            ],
+            "function_names": [
+              "preprocess_one",
+              "calculate_metrics"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/prompts.py",
+          "size": 182,
+          "total_lines": 5,
+          "code_lines": 3,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 1,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/xbench.py",
+          "size": 3447,
+          "total_lines": 88,
+          "code_lines": 72,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 3,
+            "class_names": [
+              "XBenchProcesser"
+            ],
+            "function_names": [
+              "calculate_metrics"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/base_match_processor.py",
+          "size": 3700,
+          "total_lines": 103,
+          "code_lines": 75,
+          "comment_lines": 10,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "BaseMatchProcesser"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/base_processor.py",
+          "size": 1220,
+          "total_lines": 40,
+          "code_lines": 29,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 3,
+            "class_names": [
+              "BaseProcesser"
+            ],
+            "function_names": [
+              "preprocess_one",
+              "calculate_metrics"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/base_llm_processor.py",
+          "size": 4711,
+          "total_lines": 111,
+          "code_lines": 86,
+          "comment_lines": 5,
+          "analysis": {
+            "classes": 1,
+            "functions": 2,
+            "imports": 7,
+            "class_names": [
+              "BaseLLMJudgeProcesser"
+            ],
+            "function_names": [
+              "preprocess_one",
+              "calculate_metrics"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/gaia.py",
+          "size": 3114,
+          "total_lines": 74,
+          "code_lines": 62,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 1,
+            "imports": 6,
+            "class_names": [
+              "GAIAProcesser"
+            ],
+            "function_names": [
+              "preprocess_one"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/processer/utils.py",
+          "size": 3463,
+          "total_lines": 87,
+          "code_lines": 79,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 3,
+            "imports": 1,
+            "class_names": [
+              "MetricsUtils"
+            ],
+            "function_names": [
+              "calculate_overall_metrics",
+              "calculate_level_metrics",
+              "calculate_calibration"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/data/__init__.py",
+          "size": 160,
+          "total_lines": 5,
+          "code_lines": 3,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/eval/data/data_manager.py",
+          "size": 4190,
+          "total_lines": 118,
+          "code_lines": 96,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 2,
+            "functions": 7,
+            "imports": 6,
+            "class_names": [
+              "BaseDataManager",
+              "DBDataManager"
+            ],
+            "function_names": [
+              "load",
+              "save",
+              "get_samples",
+              "load",
+              "get_samples",
+              "save",
+              "delete_samples"
+            ]
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/documents/pdf_parser.py",
+          "size": 1855,
+          "total_lines": 50,
+          "code_lines": 38,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "PDFParser"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/documents/chunkr_parser.py",
+          "size": 1032,
+          "total_lines": 33,
+          "code_lines": 24,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "ChunkrParser"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/jina_search.py",
+          "size": 2320,
+          "total_lines": 66,
+          "code_lines": 54,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "JinaSearch"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/jina_crawl.py",
+          "size": 1094,
+          "total_lines": 32,
+          "code_lines": 23,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [
+              "JinaCrawl"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/crawl4ai_crawl.py",
+          "size": 931,
+          "total_lines": 33,
+          "code_lines": 24,
+          "comment_lines": 1,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 2,
+            "class_names": [
+              "Crawl4aiCrawl"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/google_search.py",
+          "size": 2033,
+          "total_lines": 51,
+          "code_lines": 40,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "GoogleSearch"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/duckduckgo_search.py",
+          "size": 1655,
+          "total_lines": 52,
+          "code_lines": 41,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 3,
+            "class_names": [
+              "DuckDuckGoSearch"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/tools/search/baidu_search.py",
+          "size": 3236,
+          "total_lines": 85,
+          "code_lines": 70,
+          "comment_lines": 3,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 4,
+            "class_names": [
+              "BaiduSearch"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/utu_agent_ui/__init__.py",
+          "size": 0,
+          "total_lines": 1,
+          "code_lines": 0,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        }
+      ]
+    },
+    "test_files": {
+      "count": 10,
+      "total_lines": 3338,
+      "code_lines": 2627,
+      "comment_lines": 137,
+      "files": [
+        {
+          "path": "tests/__init__.py",
+          "size": 152,
+          "total_lines": 6,
+          "code_lines": 5,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/test_agents.py",
+          "size": 29834,
+          "total_lines": 851,
+          "code_lines": 679,
+          "comment_lines": 33,
+          "analysis": {
+            "classes": 6,
+            "functions": 4,
+            "imports": 14,
+            "class_names": [
+              "MockTool",
+              "TestSimpleAgent",
+              "TestBrowserAgent",
+              "TestOrchestraAgent",
+              "TestMetaAgent",
+              "TestAgentIntegration"
+            ],
+            "function_names": [
+              "mock_config",
+              "mock_tools",
+              "mock_memory",
+              "mock_state"
+            ]
+          }
+        },
+        {
+          "path": "tests/test_tools.py",
+          "size": 28924,
+          "total_lines": 915,
+          "code_lines": 691,
+          "comment_lines": 2,
+          "analysis": {
+            "classes": 12,
+            "functions": 13,
+            "imports": 50,
+            "class_names": [
+              "MockTool",
+              "TestBaseTool",
+              "TestToolRegistry",
+              "TestWebTools",
+              "TestSearchTools",
+              "TestAnalysisTools",
+              "TestDataTools",
+              "TestFileTools",
+              "TestAutomationTools",
+              "TestCommunicationTools"
+            ],
+            "function_names": [
+              "test_tool_registry_initialization",
+              "test_tool_registration",
+              "test_tool_unregistration",
+              "test_tool_search",
+              "test_tools_by_category",
+              "test_web_tools_collection",
+              "test_search_tools_collection",
+              "test_analysis_tools_collection",
+              "test_data_tools_collection",
+              "test_file_tools_collection"
+            ]
+          }
+        },
+        {
+          "path": "tests/e2e/test_tool_workflows.py",
+          "size": 8954,
+          "total_lines": 253,
+          "code_lines": 212,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 11,
+            "class_names": [
+              "TestToolWorkflows"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/e2e/__init__.py",
+          "size": 135,
+          "total_lines": 4,
+          "code_lines": 4,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/e2e/test_workflow_orchestration.py",
+          "size": 12750,
+          "total_lines": 355,
+          "code_lines": 299,
+          "comment_lines": 22,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 6,
+            "class_names": [
+              "TestWorkflowOrchestration"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/e2e/test_agent_workflows.py",
+          "size": 8050,
+          "total_lines": 219,
+          "code_lines": 172,
+          "comment_lines": 21,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 11,
+            "class_names": [
+              "TestAgentWorkflows"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/performance/__init__.py",
+          "size": 131,
+          "total_lines": 4,
+          "code_lines": 4,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/performance/test_load_performance.py",
+          "size": 11722,
+          "total_lines": 299,
+          "code_lines": 213,
+          "comment_lines": 26,
+          "analysis": {
+            "classes": 1,
+            "functions": 0,
+            "imports": 10,
+            "class_names": [
+              "TestLoadPerformance"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "tests/performance/benchmark.py",
+          "size": 15522,
+          "total_lines": 432,
+          "code_lines": 348,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 2,
+            "functions": 3,
+            "imports": 20,
+            "class_names": [
+              "BenchmarkResult",
+              "PerformanceBenchmark"
+            ],
+            "function_names": [
+              "generate_report",
+              "save_report",
+              "create_performance_charts"
+            ]
+          }
+        }
+      ]
+    },
+    "script_files": {
+      "count": 2,
+      "total_lines": 482,
+      "code_lines": 338,
+      "comment_lines": 39,
+      "files": [
+        {
+          "path": "scripts/start_telegram_bot.py",
+          "size": 6154,
+          "total_lines": 192,
+          "code_lines": 129,
+          "comment_lines": 18,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "scripts/setup_supabase.py",
+          "size": 9413,
+          "total_lines": 290,
+          "code_lines": 209,
+          "comment_lines": 21,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 8,
+            "class_names": [],
+            "function_names": []
+          }
+        }
+      ]
+    },
+    "example_files": {
+      "count": 6,
+      "total_lines": 2023,
+      "code_lines": 1562,
+      "comment_lines": 116,
+      "files": [
+        {
+          "path": "examples/orchestra_agent_example.py",
+          "size": 15850,
+          "total_lines": 480,
+          "code_lines": 395,
+          "comment_lines": 17,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 9,
+            "class_names": [
+              "WorkflowManagerTool",
+              "TaskDistributorTool",
+              "ResultAggregatorTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "examples/meta_agent_example.py",
+          "size": 16540,
+          "total_lines": 487,
+          "code_lines": 377,
+          "comment_lines": 25,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [
+              "AgentGeneratorTool",
+              "ConfigValidatorTool",
+              "TemplateManagerTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "examples/__init__.py",
+          "size": 188,
+          "total_lines": 6,
+          "code_lines": 5,
+          "comment_lines": 0,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 0,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "examples/browser_agent_example.py",
+          "size": 10972,
+          "total_lines": 346,
+          "code_lines": 268,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [
+              "WebScrapingTool",
+              "FormAutomationTool",
+              "ScreenshotTool"
+            ],
+            "function_names": []
+          }
+        },
+        {
+          "path": "examples/tools_example.py",
+          "size": 14558,
+          "total_lines": 414,
+          "code_lines": 303,
+          "comment_lines": 44,
+          "analysis": {
+            "classes": 0,
+            "functions": 0,
+            "imports": 14,
+            "class_names": [],
+            "function_names": []
+          }
+        },
+        {
+          "path": "examples/simple_agent_example.py",
+          "size": 9089,
+          "total_lines": 290,
+          "code_lines": 214,
+          "comment_lines": 15,
+          "analysis": {
+            "classes": 3,
+            "functions": 0,
+            "imports": 7,
+            "class_names": [
+              "DataAnalysisTool",
+              "FileProcessingTool",
+              "WebSearchTool"
+            ],
+            "function_names": []
+          }
+        }
+      ]
+    },
+    "documentation": {
+      "count": 27,
+      "total_lines": 11586,
+      "code_lines": 7517,
+      "comment_lines": 1611,
+      "files": [
+        {
+          "path": "README.md",
+          "size": 9406,
+          "total_lines": 212,
+          "code_lines": 133,
+          "comment_lines": 33
+        },
+        {
+          "path": "PROJECT_STATUS_REPORT.md",
+          "size": 10300,
+          "total_lines": 281,
+          "code_lines": 182,
+          "comment_lines": 44
+        },
+        {
+          "path": "CURRENT_STATUS_REPORT.md",
+          "size": 17239,
+          "total_lines": 406,
+          "code_lines": 297,
+          "comment_lines": 48
+        },
+        {
+          "path": "PHASE1_COMPLETION_REPORT.md",
+          "size": 11508,
+          "total_lines": 311,
+          "code_lines": 202,
+          "comment_lines": 47
+        },
+        {
+          "path": "PRODUCTION_DEPLOYMENT_REPORT.md",
+          "size": 8135,
+          "total_lines": 273,
+          "code_lines": 180,
+          "comment_lines": 35
+        },
+        {
+          "path": "FINAL_PROJECT_REPORT.md",
+          "size": 16672,
+          "total_lines": 394,
+          "code_lines": 292,
+          "comment_lines": 46
+        },
+        {
+          "path": "DEPLOYMENT_GUIDE.md",
+          "size": 12858,
+          "total_lines": 634,
+          "code_lines": 388,
+          "comment_lines": 122
+        },
+        {
+          "path": "README_FINAL.md",
+          "size": 14095,
+          "total_lines": 500,
+          "code_lines": 281,
+          "comment_lines": 83
+        },
+        {
+          "path": "PHASE3_COMPLETION_REPORT.md",
+          "size": 13696,
+          "total_lines": 372,
+          "code_lines": 250,
+          "comment_lines": 51
+        },
+        {
+          "path": "INTEGRATION_PLAN.md",
+          "size": 13417,
+          "total_lines": 437,
+          "code_lines": 290,
+          "comment_lines": 67
+        },
+        {
+          "path": "COMPREHENSIVE_README.md",
+          "size": 31656,
+          "total_lines": 1285,
+          "code_lines": 794,
+          "comment_lines": 182
+        },
+        {
+          "path": "PHASE4_COMPLETION_REPORT.md",
+          "size": 14753,
+          "total_lines": 372,
+          "code_lines": 252,
+          "comment_lines": 53
+        },
+        {
+          "path": "README_100_PERCENT_COMPLETE.md",
+          "size": 15370,
+          "total_lines": 471,
+          "code_lines": 300,
+          "comment_lines": 72
+        },
+        {
+          "path": "PROJECT_SUMMARY.md",
+          "size": 17890,
+          "total_lines": 482,
+          "code_lines": 324,
+          "comment_lines": 64
+        },
+        {
+          "path": "PHASE2_COMPLETION_REPORT.md",
+          "size": 15081,
+          "total_lines": 397,
+          "code_lines": 263,
+          "comment_lines": 59
+        },
+        {
+          "path": "SUPABASE_TELEGRAM_INTEGRATION_REPORT.md",
+          "size": 17127,
+          "total_lines": 393,
+          "code_lines": 278,
+          "comment_lines": 51
+        },
+        {
+          "path": "docs/TUTORIALS.md",
+          "size": 12124,
+          "total_lines": 434,
+          "code_lines": 304,
+          "comment_lines": 42
+        },
+        {
+          "path": "docs/COMMUNITY_GUIDE.md",
+          "size": 18584,
+          "total_lines": 826,
+          "code_lines": 531,
+          "comment_lines": 96
+        },
+        {
+          "path": "docs/architecture.md",
+          "size": 11327,
+          "total_lines": 252,
+          "code_lines": 166,
+          "comment_lines": 42
+        },
+        {
+          "path": "docs/USER_GUIDE.md",
+          "size": 19417,
+          "total_lines": 844,
+          "code_lines": 550,
+          "comment_lines": 123
+        },
+        {
+          "path": "docs/quickstart.md",
+          "size": 7513,
+          "total_lines": 372,
+          "code_lines": 210,
+          "comment_lines": 68
+        },
+        {
+          "path": "docs/TOOLS_API_REFERENCE.md",
+          "size": 29149,
+          "total_lines": 1058,
+          "code_lines": 746,
+          "comment_lines": 68
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/README.md",
+          "size": 4503,
+          "total_lines": 147,
+          "code_lines": 76,
+          "comment_lines": 30
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/README_zh.md",
+          "size": 4029,
+          "total_lines": 148,
+          "code_lines": 77,
+          "comment_lines": 30
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/README_ja.md",
+          "size": 3706,
+          "total_lines": 115,
+          "code_lines": 62,
+          "comment_lines": 23
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/README_ko.md",
+          "size": 4171,
+          "total_lines": 129,
+          "code_lines": 66,
+          "comment_lines": 28
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/README.md",
+          "size": 605,
+          "total_lines": 41,
+          "code_lines": 23,
+          "comment_lines": 4
+        }
+      ]
+    },
+    "config_files": {
+      "count": 41,
+      "total_lines": 21914,
+      "code_lines": 21379,
+      "comment_lines": 195,
+      "files": [
+        {
+          "path": "config.yaml",
+          "size": 1992,
+          "total_lines": 100,
+          "code_lines": 76,
+          "comment_lines": 13
+        },
+        {
+          "path": "configs/telegram.yaml",
+          "size": 7174,
+          "total_lines": 312,
+          "code_lines": 229,
+          "comment_lines": 44
+        },
+        {
+          "path": "configs/supabase.yaml",
+          "size": 3955,
+          "total_lines": 198,
+          "code_lines": 128,
+          "comment_lines": 35
+        },
+        {
+          "path": "configs/config.example.yaml",
+          "size": 4113,
+          "total_lines": 194,
+          "code_lines": 159,
+          "comment_lines": 17
+        },
+        {
+          "path": "deployment/kubernetes/namespace.yaml",
+          "size": 248,
+          "total_lines": 10,
+          "code_lines": 9,
+          "comment_lines": 1
+        },
+        {
+          "path": "deployment/kubernetes/api-deployment.yaml",
+          "size": 3524,
+          "total_lines": 139,
+          "code_lines": 137,
+          "comment_lines": 2
+        },
+        {
+          "path": "deployment/kubernetes/ingress.yaml",
+          "size": 1646,
+          "total_lines": 59,
+          "code_lines": 58,
+          "comment_lines": 1
+        },
+        {
+          "path": "deployment/kubernetes/configmap.yaml",
+          "size": 1080,
+          "total_lines": 42,
+          "code_lines": 28,
+          "comment_lines": 8
+        },
+        {
+          "path": "src/integrations/youtu/prompts/eval/augmentation_templates.yaml",
+          "size": 1627,
+          "total_lines": 38,
+          "code_lines": 25,
+          "comment_lines": 3
+        },
+        {
+          "path": "src/integrations/youtu/prompts/eval/judge_templates.yaml",
+          "size": 4871,
+          "total_lines": 78,
+          "code_lines": 43,
+          "comment_lines": 5
+        },
+        {
+          "path": "src/integrations/youtu/prompts/tools/tools_prompts.yaml",
+          "size": 1829,
+          "total_lines": 57,
+          "code_lines": 48,
+          "comment_lines": 1
+        },
+        {
+          "path": "src/integrations/youtu/prompts/agents/workforce/assigner.yaml",
+          "size": 2584,
+          "total_lines": 51,
+          "code_lines": 40,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/prompts/agents/workforce/executor.yaml",
+          "size": 4611,
+          "total_lines": 125,
+          "code_lines": 87,
+          "comment_lines": 5
+        },
+        {
+          "path": "src/integrations/youtu/prompts/agents/workforce/answerer.yaml",
+          "size": 2866,
+          "total_lines": 56,
+          "code_lines": 44,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/prompts/agents/workforce/planner.yaml",
+          "size": 10123,
+          "total_lines": 259,
+          "code_lines": 179,
+          "comment_lines": 21
+        },
+        {
+          "path": "docker-compose.yml",
+          "size": 4343,
+          "total_lines": 169,
+          "code_lines": 150,
+          "comment_lines": 9
+        },
+        {
+          "path": "monitoring/prometheus.yml",
+          "size": 1156,
+          "total_lines": 54,
+          "code_lines": 34,
+          "comment_lines": 11
+        },
+        {
+          "path": "optimized_performance_test_report.json",
+          "size": 869,
+          "total_lines": 33,
+          "code_lines": 33,
+          "comment_lines": 0
+        },
+        {
+          "path": "comprehensive_api_test_report.json",
+          "size": 3400,
+          "total_lines": 103,
+          "code_lines": 103,
+          "comment_lines": 0
+        },
+        {
+          "path": "production_test_results.json",
+          "size": 2070,
+          "total_lines": 72,
+          "code_lines": 72,
+          "comment_lines": 0
+        },
+        {
+          "path": "test_report.json",
+          "size": 2300,
+          "total_lines": 75,
+          "code_lines": 75,
+          "comment_lines": 0
+        },
+        {
+          "path": "process_config.json",
+          "size": 501,
+          "total_lines": 24,
+          "code_lines": 24,
+          "comment_lines": 0
+        },
+        {
+          "path": "simple_test_results.json",
+          "size": 149,
+          "total_lines": 7,
+          "code_lines": 7,
+          "comment_lines": 0
+        },
+        {
+          "path": "100_percent_completion_test_report.json",
+          "size": 2169,
+          "total_lines": 68,
+          "code_lines": 68,
+          "comment_lines": 0
+        },
+        {
+          "path": "final_test_report.json",
+          "size": 2542,
+          "total_lines": 68,
+          "code_lines": 68,
+          "comment_lines": 0
+        },
+        {
+          "path": "skill_completion_assessment.json",
+          "size": 7708,
+          "total_lines": 258,
+          "code_lines": 258,
+          "comment_lines": 0
+        },
+        {
+          "path": "final_comprehensive_test_report.json",
+          "size": 1532,
+          "total_lines": 54,
+          "code_lines": 54,
+          "comment_lines": 0
+        },
+        {
+          "path": "simple_api_test_report.json",
+          "size": 2454,
+          "total_lines": 61,
+          "code_lines": 61,
+          "comment_lines": 0
+        },
+        {
+          "path": "deployment_report.json",
+          "size": 3445,
+          "total_lines": 62,
+          "code_lines": 62,
+          "comment_lines": 0
+        },
+        {
+          "path": "comprehensive_project_check.json",
+          "size": 2699,
+          "total_lines": 47,
+          "code_lines": 47,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/package.json",
+          "size": 477,
+          "total_lines": 23,
+          "code_lines": 22,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/tsconfig.json",
+          "size": 12379,
+          "total_lines": 110,
+          "code_lines": 109,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/openmanus/tool/chart_visualization/package-lock.json",
+          "size": 299621,
+          "total_lines": 8740,
+          "code_lines": 8739,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/agents/orchestra/data/planner_examples.json",
+          "size": 4688,
+          "total_lines": 53,
+          "code_lines": 51,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/tsconfig.app.json",
+          "size": 702,
+          "total_lines": 28,
+          "code_lines": 25,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/package.json",
+          "size": 1156,
+          "total_lines": 45,
+          "code_lines": 44,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/tsconfig.node.json",
+          "size": 630,
+          "total_lines": 26,
+          "code_lines": 23,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/tsconfig.json",
+          "size": 119,
+          "total_lines": 8,
+          "code_lines": 7,
+          "comment_lines": 0
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/package-lock.json",
+          "size": 358158,
+          "total_lines": 9749,
+          "code_lines": 9748,
+          "comment_lines": 0
+        },
+        {
+          "path": "pyproject.toml",
+          "size": 5262,
+          "total_lines": 238,
+          "code_lines": 188,
+          "comment_lines": 19
+        },
+        {
+          "path": "src/integrations/youtu/ui/frontend/pyproject.toml",
+          "size": 428,
+          "total_lines": 21,
+          "code_lines": 17,
+          "comment_lines": 0
+        }
+      ]
+    },
+    "directories": {
+      "src/agents": {
+        "python_files": 7,
+        "has_init": true
+      },
+      "src/utils": {
+        "python_files": 3,
+        "has_init": true
+      },
+      "src/api": {
+        "python_files": 14,
+        "has_init": true
+      },
+      "src/core": {
+        "python_files": 14,
+        "has_init": true
+      },
+      "src/security": {
+        "python_files": 3,
+        "has_init": true
+      },
+      "src/tools": {
+        "python_files": 15,
+        "has_init": true
+      },
+      "src/integrations": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/frontend": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/ai": {
+        "python_files": 3,
+        "has_init": false
+      },
+      "src/integrations/openmanus": {
+        "python_files": 7,
+        "has_init": true
+      },
+      "src/integrations/supabase": {
+        "python_files": 5,
+        "has_init": true
+      },
+      "src/integrations/youtu": {
+        "python_files": 1,
+        "has_init": true
+      },
+      "src/frontend/styles": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/frontend/components": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/openmanus/flow": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/integrations/openmanus/agent": {
+        "python_files": 9,
+        "has_init": true
+      },
+      "src/integrations/openmanus/prompt": {
+        "python_files": 8,
+        "has_init": true
+      },
+      "src/integrations/openmanus/sandbox": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/openmanus/mcp": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/openmanus/tool": {
+        "python_files": 15,
+        "has_init": true
+      },
+      "src/integrations/youtu/agents": {
+        "python_files": 7,
+        "has_init": true
+      },
+      "src/integrations/youtu/utils": {
+        "python_files": 10,
+        "has_init": true
+      },
+      "src/integrations/youtu/models": {
+        "python_files": 2,
+        "has_init": false
+      },
+      "src/integrations/youtu/env": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/integrations/youtu/eval": {
+        "python_files": 3,
+        "has_init": true
+      },
+      "src/integrations/youtu/tracing": {
+        "python_files": 7,
+        "has_init": true
+      },
+      "src/integrations/youtu/prompts": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/config": {
+        "python_files": 6,
+        "has_init": true
+      },
+      "src/integrations/youtu/context": {
+        "python_files": 3,
+        "has_init": true
+      },
+      "src/integrations/youtu/tools": {
+        "python_files": 22,
+        "has_init": true
+      },
+      "src/integrations/youtu/tool_maker": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/youtu/ui": {
+        "python_files": 4,
+        "has_init": false
+      },
+      "src/integrations/youtu/meta": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/youtu/patch": {
+        "python_files": 1,
+        "has_init": false
+      },
+      "src/integrations/youtu/db": {
+        "python_files": 5,
+        "has_init": true
+      },
+      "src/integrations/openmanus/sandbox/core": {
+        "python_files": 4,
+        "has_init": false
+      },
+      "src/integrations/openmanus/tool/search": {
+        "python_files": 6,
+        "has_init": true
+      },
+      "src/integrations/openmanus/tool/chart_visualization": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/integrations/openmanus/tool/chart_visualization/src": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/openmanus/tool/chart_visualization/test": {
+        "python_files": 2,
+        "has_init": false
+      },
+      "src/integrations/youtu/agents/workforce": {
+        "python_files": 6,
+        "has_init": true
+      },
+      "src/integrations/youtu/agents/orchestra": {
+        "python_files": 5,
+        "has_init": true
+      },
+      "src/integrations/youtu/utils/openai_utils": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/integrations/youtu/env/utils": {
+        "python_files": 4,
+        "has_init": true
+      },
+      "src/integrations/youtu/eval/benchmarks": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/youtu/eval/processer": {
+        "python_files": 10,
+        "has_init": true
+      },
+      "src/integrations/youtu/eval/data": {
+        "python_files": 2,
+        "has_init": true
+      },
+      "src/integrations/youtu/prompts/agents": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/prompts/eval": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/prompts/tools": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/prompts/meta": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/tools/documents": {
+        "python_files": 2,
+        "has_init": false
+      },
+      "src/integrations/youtu/tools/search": {
+        "python_files": 6,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/agents/orchestra/prompts": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/agents/orchestra/data": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/prompts/agents/workforce": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/public": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/utu_agent_ui": {
+        "python_files": 1,
+        "has_init": true
+      },
+      "src/integrations/youtu/ui/frontend/src": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/src/types": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/src/assets": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/src/components": {
+        "python_files": 0,
+        "has_init": false
+      },
+      "src/integrations/youtu/ui/frontend/src/services": {
+        "python_files": 0,
+        "has_init": false
+      }
+    }
+  },
+  "metrics": {
+    "overall_completion": 98.33333333333333,
+    "components": {
+      "Core Framework": {
+        "completion_rate": 100.0,
+        "weight": 25,
+        "weighted_score": 25.0,
+        "expected_files": 6,
+        "found_files": 6,
+        "total_files": 14,
+        "status": "✅ Complete"
+      },
+      "Agents": {
+        "completion_rate": 100.0,
+        "weight": 20,
+        "weighted_score": 20.0,
+        "expected_files": 4,
+        "found_files": 4,
+        "total_files": 7,
+        "status": "✅ Complete"
+      },
+      "Tools": {
+        "completion_rate": 100.0,
+        "weight": 15,
+        "weighted_score": 15.0,
+        "expected_files": 4,
+        "found_files": 4,
+        "total_files": 15,
+        "status": "✅ Complete"
+      },
+      "API": {
+        "completion_rate": 100.0,
+        "weight": 15,
+        "weighted_score": 15.0,
+        "expected_files": 3,
+        "found_files": 3,
+        "total_files": 14,
+        "status": "✅ Complete"
+      },
+      "Security": {
+        "completion_rate": 100.0,
+        "weight": 10,
+        "weighted_score": 10.0,
+        "expected_files": 2,
+        "found_files": 2,
+        "total_files": 3,
+        "status": "✅ Complete"
+      },
+      "Testing": {
+        "completion_rate": 100,
+        "weight": 10,
+        "weighted_score": 10.0,
+        "expected_files": 0,
+        "found_files": 10,
+        "total_files": 10,
+        "status": "✅ Complete"
+      },
+      "Documentation": {
+        "completion_rate": 66.66666666666666,
+        "weight": 5,
+        "weighted_score": 3.3333333333333326,
+        "expected_files": 3,
+        "found_files": 2,
+        "total_files": 6,
+        "status": "🔄 In Progress"
+      }
+    }
+  }
+}
